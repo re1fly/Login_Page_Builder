@@ -45,7 +45,9 @@ class Controller extends BaseController
         fopen($this->htmlPath, 'w');
         file_put_contents($this->htmlPath, $request->template);
 
-        return ['status' => 'success'];
+        $content = file_get_contents($this->htmlPath);
+
+        return ['status' => 'success', 'results' => $content];
     }
 
     public function getJson()
@@ -67,9 +69,12 @@ class Controller extends BaseController
         }
 
         fopen($this->jsonPath, 'w');
-        file_put_contents($this->jsonPath, $request->template);
+        file_put_contents($this->jsonPath, json_encode($request->template, true));
 
-        return ['status' => 'success'];
+        $content = file_get_contents($this->jsonPath);
+        $content = json_decode($content, true);
+
+        return ['status' => 'success', 'results' => $content];
     }
 
 }

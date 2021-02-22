@@ -20,7 +20,7 @@ Route::get('/', function () {
 Route::view('editor', 'app');
 
 Route::get('html', 'Controller@getHtml');
-Route::get('html/save', 'Controller@saveHtml');
+Route::post('html', 'Controller@saveHtml');
 
 Route::get('json', 'Controller@getJson');
-Route::get('json/save', 'Controller@saveJson');
+Route::post('json', 'Controller@saveJson');
