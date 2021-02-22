@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/page_wifi.iml" filepath="$PROJECT_DIR$/.idea/page_wifi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/html-editor_laravel-react.iml" filepath="$PROJECT_DIR$/.idea/html-editor_laravel-react.iml" />
     </modules>
   </component>
 </project>

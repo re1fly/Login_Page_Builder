@@ -17,4 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::view('/editor', 'app');
+Route::view('editor', 'app');
+
+Route::get('html', 'Controller@getHtml');
+Route::get('html/save', 'Controller@saveHtml');
+
+Route::get('json', 'Controller@getJson');
+Route::get('json/save', 'Controller@saveJson');
