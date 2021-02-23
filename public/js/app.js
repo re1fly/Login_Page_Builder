@@ -7701,13 +7701,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/makeStyles.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/makeStyles.js");
 /* harmony import */ var react_email_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-email-editor */ "./node_modules/react-email-editor/es/index.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Grid/Grid.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Button/Button.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Grid/Grid.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Button/Button.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+Object(function webpackMissingModule() { var e = new Error("Cannot find module './sample.json'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -7728,7 +7729,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__.default)(function (theme) {
+
+var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_6__.default)(function (theme) {
   return {
     root: {
       '& > *': {
@@ -7745,10 +7747,15 @@ var Example = function Example(props) {
   var classes = useStyles();
   var emailEditorRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
 
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(dataJson),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
       _useState2 = _slicedToArray(_useState, 2),
       dataJson = _useState2[0],
       setDataJson = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(dataHtml),
+      _useState4 = _slicedToArray(_useState3, 2),
+      dataHtml = _useState4[0],
+      setDataHtml = _useState4[1];
 
   var exportHtml = function exportHtml() {
     emailEditorRef.current.editor.exportHtml(function (data) {
@@ -7758,6 +7765,7 @@ var Example = function Example(props) {
       };
       axios__WEBPACK_IMPORTED_MODULE_3___default().post('http://127.0.0.1:8000/html', dataHtml).then(function (response) {
         console.log(response);
+        setDataHtml(response.data.results);
       })["catch"](function (err) {
         console.error(err);
       }); // console.log('exportHtml', html);
@@ -7772,11 +7780,7 @@ var Example = function Example(props) {
           design: design
         })
       };
-      axios__WEBPACK_IMPORTED_MODULE_3___default().post('http://127.0.0.1:8000/json', dataJson).then(function (response) {
-        if (response.status === 200) {}
-
-        console.log(response);
-      })["catch"](function (err) {
+      axios__WEBPACK_IMPORTED_MODULE_3___default().post('http://127.0.0.1:8000/json', dataJson).then(function (response) {})["catch"](function (err) {
         console.error(err);
       }); // // console.log('saveDesign', design);
       // // alert('Design JSON has been logged in your developer console.');
@@ -7785,31 +7789,30 @@ var Example = function Example(props) {
 
   var onLoad = function onLoad() {
     axios__WEBPACK_IMPORTED_MODULE_3___default().get('http://127.0.0.1:8000/json').then(function (response) {
-      // setDataJson(response.data.results);
-      emailEditorRef.current.editor.loadDesign(response.data.results);
-      console.log(response);
-    }); // emailEditorRef.current.editor.loadDesign(dataJson);
+      emailEditorRef.current.editor.loadDesign(JSON.parse(response.data.results).design);
+    });
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
     className: classes.root,
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_material_ui_core__WEBPACK_IMPORTED_MODULE_6__.default, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_material_ui_core__WEBPACK_IMPORTED_MODULE_7__.default, {
       item: true,
       xs: 12,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_7__.default, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_8__.default, {
         className: classes.marginButton,
         variant: "outlined",
         color: "primary",
         onClick: exportHtml,
         children: "Export HTML"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_7__.default, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_8__.default, {
+        className: classes.marginButton,
         variant: "outlined",
         color: "primary",
         onClick: saveDesign,
         children: "Save Design as JSON"
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.StrictMode, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_email_editor__WEBPACK_IMPORTED_MODULE_2__.default, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.StrictMode, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_email_editor__WEBPACK_IMPORTED_MODULE_2__.default, {
         ref: emailEditorRef,
         onLoad: onLoad
       })
@@ -7820,7 +7823,7 @@ var Example = function Example(props) {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Example);
 
 if (document.getElementById('example')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(Example, {}), document.getElementById('example'));
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(Example, {}), document.getElementById('example'));
 }
 
 /***/ }),

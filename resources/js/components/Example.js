@@ -1,9 +1,10 @@
 import React, {useEffect, useRef, useState} from 'react';
 import ReactDOM from 'react-dom';
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import EmailEditor from 'react-email-editor'
 import {Button, Container, Grid} from "@material-ui/core";
 import axios from 'axios';
+import sample from './sample.json';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -22,7 +23,9 @@ const Example = (props) => {
 
     const emailEditorRef = useRef(null);
 
-    const [dataJson, setDataJson] = useState(dataJson)
+    const [dataJson, setDataJson] = useState('');
+
+    const [dataHtml, setDataHtml] = useState(dataHtml);
 
     const exportHtml = () => {
         emailEditorRef.current.editor.exportHtml((data) => {
@@ -34,6 +37,7 @@ const Example = (props) => {
 
             axios.post('http://127.0.0.1:8000/html', dataHtml).then(response => {
                 console.log(response);
+                setDataHtml(response.data.results);
             }).catch((err) => {
                 console.error(err)
             })
@@ -45,14 +49,11 @@ const Example = (props) => {
     const saveDesign = () => {
         emailEditorRef.current.editor.saveDesign((design) => {
             const dataJson = {
-              template: JSON.stringify({design})
+                template: JSON.stringify({design})
             };
 
             axios.post('http://127.0.0.1:8000/json', dataJson).then(response => {
-                if(response.status === 200){
 
-                }
-                console.log(response)
             }).catch((err) => {
                 console.error(err)
             })
@@ -65,28 +66,21 @@ const Example = (props) => {
 
     const onLoad = () => {
         axios.get('http://127.0.0.1:8000/json').then(response => {
-            // setDataJson(response.data.results);
-            emailEditorRef.current.editor.loadDesign(response.data.results);
-            console.log(response);
+            emailEditorRef.current.editor.loadDesign(JSON.parse(response.data.results).design);
         })
-
-
-        // emailEditorRef.current.editor.loadDesign(dataJson);
-
     };
-
-
-
 
 
     return (
         <div className={classes.root}>
             <Grid item xs={12}>
-                <Button className={classes.marginButton} variant="outlined" color="primary" onClick={exportHtml}>Export HTML</Button>
-                <Button variant="outlined" color="primary" onClick={saveDesign}>Save Design as JSON</Button>
+                <Button className={classes.marginButton} variant="outlined" color="primary" onClick={exportHtml}>Export
+                    HTML</Button>
+                <Button className={classes.marginButton} variant="outlined" color="primary" onClick={saveDesign}>Save
+                    Design as JSON</Button>
             </Grid>
             <React.StrictMode>
-                <EmailEditor ref={emailEditorRef} onLoad={onLoad} />
+                <EmailEditor ref={emailEditorRef} onLoad={onLoad}/>
             </React.StrictMode>
         </div>
     );
@@ -95,5 +89,5 @@ const Example = (props) => {
 export default Example;
 
 if (document.getElementById('example')) {
-    ReactDOM.render(<Example />, document.getElementById('example'));
+    ReactDOM.render(<Example/>, document.getElementById('example'));
 }
