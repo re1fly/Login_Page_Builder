@@ -4,7 +4,6 @@ import {makeStyles} from '@material-ui/core/styles';
 import EmailEditor from 'react-email-editor'
 import {Button, Container, Grid} from "@material-ui/core";
 import axios from 'axios';
-import sample from './sample.json';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -18,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const Example = (props) => {
+const Design = (props) => {
     const classes = useStyles();
 
     const emailEditorRef = useRef(null);
@@ -86,8 +85,8 @@ const Example = (props) => {
     );
 };
 
-export default Example;
+export default Design;
 
 if (document.getElementById('example')) {
-    ReactDOM.render(<Example/>, document.getElementById('example'));
+    ReactDOM.render(<Design/>, document.getElementById('example'));
 }
