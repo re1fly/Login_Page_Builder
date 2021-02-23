@@ -7752,10 +7752,16 @@ var Example = function Example(props) {
 
   var exportHtml = function exportHtml() {
     emailEditorRef.current.editor.exportHtml(function (data) {
-      var design = data.design,
-          html = data.html;
-      console.log('exportHtml', html);
-      alert('Design HTML has been saved in your developer console.');
+      // const { design, html } = data;
+      var dataHtml = {
+        template: data.html
+      };
+      axios__WEBPACK_IMPORTED_MODULE_3___default().post('http://127.0.0.1:8000/html', dataHtml).then(function (response) {
+        console.log(response);
+      })["catch"](function (err) {
+        console.error(err);
+      }); // console.log('exportHtml', html);
+      // alert('Design HTML has been saved in your developer console.');
     });
   };
 
