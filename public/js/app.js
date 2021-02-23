@@ -7701,11 +7701,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/makeStyles.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/makeStyles.js");
 /* harmony import */ var react_email_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-email-editor */ "./node_modules/react-email-editor/es/index.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Grid/Grid.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Button/Button.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Grid/Grid.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Button/Button.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
@@ -7713,7 +7726,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__.default)(function (theme) {
+
+
+var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__.default)(function (theme) {
   return {
     root: {
       '& > *': {
@@ -7730,6 +7745,11 @@ var Example = function Example(props) {
   var classes = useStyles();
   var emailEditorRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
 
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('null'),
+      _useState2 = _slicedToArray(_useState, 2),
+      dataJson = _useState2[0],
+      setDataJson = _useState2[1];
+
   var exportHtml = function exportHtml() {
     emailEditorRef.current.editor.exportHtml(function (data) {
       var design = data.design,
@@ -7741,45 +7761,56 @@ var Example = function Example(props) {
 
   var saveDesign = function saveDesign() {
     emailEditorRef.current.editor.saveDesign(function (design) {
-      // const options = {
-      //     method: 'POST',
-      //     headers: {'Content-Type': 'application/json'},
-      //     body: {"displayMode":"web","design":{design},"mergeTags":{"name":"templates"}}
-      // };
-      //
-      // fetch('https://api.unlayer.com/v2/export/html', options)
-      //     .then(response => console.log(response))
-      //     .catch(err => console.error(err));
-      console.log('saveDesign', design);
-      alert('Design JSON has been logged in your developer console.');
+      var dataJson = {
+        template: JSON.stringify({
+          design: design
+        })
+      };
+      axios__WEBPACK_IMPORTED_MODULE_3___default().post('http://127.0.0.1:8000/json', dataJson).then(function (response) {
+        console.log(response);
+      })["catch"](function (err) {
+        console.error(err);
+      }); // // console.log('saveDesign', design);
+      // // alert('Design JSON has been logged in your developer console.');
     });
   };
 
-  var onLoad = function onLoad() {// you can load your template here;
-    // const templateJson = {};
-    // emailEditorRef.current.editor.loadDesign(templateJson);
+  var onLoad = function onLoad() {// const options = {
+    //     method: 'GET',
+    //     headers: {'Content-Type': 'application/json'},
+    // };
+    //
+    // fetch('http://127.0.0.1:8000/json', options)
+    //     .then(response => {
+    //         if(response.status === 200)
+    //             emailEditorRef.current.editor.loadDesign(response.data);
+    //             console.log(response);
+    //     })
+    //     .catch(err => console.error(err));
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     className: classes.root,
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__.default, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_material_ui_core__WEBPACK_IMPORTED_MODULE_6__.default, {
       item: true,
       xs: 12,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_6__.default, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_7__.default, {
         className: classes.marginButton,
         variant: "outlined",
         color: "primary",
         onClick: exportHtml,
         children: "Export HTML"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_6__.default, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_7__.default, {
         variant: "outlined",
         color: "primary",
         onClick: saveDesign,
         children: "Save Design as JSON"
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_email_editor__WEBPACK_IMPORTED_MODULE_2__.default, {
-      ref: emailEditorRef,
-      onLoad: onLoad
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.StrictMode, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_email_editor__WEBPACK_IMPORTED_MODULE_2__.default, {
+        ref: emailEditorRef,
+        onLoad: onLoad
+      })
     })]
   });
 };
@@ -7787,7 +7818,7 @@ var Example = function Example(props) {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Example);
 
 if (document.getElementById('example')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Example, {}), document.getElementById('example'));
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(Example, {}), document.getElementById('example'));
 }
 
 /***/ }),
@@ -74535,7 +74566,7 @@ var loadScript = function loadScript(callback) {
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"_args":[["react-email-editor@1.2.0","C:\\\\xampp\\\\htdocs\\\\html-editor_laravel-react"]],"_from":"react-email-editor@1.2.0","_id":"react-email-editor@1.2.0","_inBundle":false,"_integrity":"sha512-2nlHhJSwOtc1yrhOR8nAzHIqtA0tVJkj2DtjPTDvARuVuA28PffKlk45/vdRyOHERUQf+aUUgV7MZPpZj7JoZQ==","_location":"/react-email-editor","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"react-email-editor@1.2.0","name":"react-email-editor","escapedName":"react-email-editor","rawSpec":"1.2.0","saveSpec":null,"fetchSpec":"1.2.0"},"_requiredBy":["/"],"_resolved":"https://registry.npmjs.org/react-email-editor/-/react-email-editor-1.2.0.tgz","_spec":"1.2.0","_where":"C:\\\\xampp\\\\htdocs\\\\html-editor_laravel-react","author":"","bugs":{"url":"https://github.com/unlayer/react-email-editor/issues"},"dependencies":{},"description":"Unlayer\'s Email Editor Component for React.js","devDependencies":{"nwb":"^0.22.0","react":"^16.13.1","react-dom":"^16.13.1","react-router-dom":"^5.2.0","styled-components":"^4.2.0"},"files":["css","es","lib","umd"],"homepage":"https://github.com/unlayer/react-email-editor#readme","keywords":["react-component"],"license":"MIT","main":"lib/index.js","module":"es/index.js","name":"react-email-editor","peerDependencies":{"react":"15.x || 16.x"},"repository":{"type":"git","url":"git+https://github.com/unlayer/react-email-editor.git"},"scripts":{"build":"nwb build-react-component","clean":"nwb clean-module && nwb clean-demo","release":"npm run build && npm publish","start":"nwb serve-react-demo","test":"nwb test-react","test:coverage":"nwb test-react --coverage","test:watch":"nwb test-react --server"},"version":"1.2.0"}');
+module.exports = JSON.parse('{"_from":"react-email-editor","_id":"react-email-editor@1.2.0","_inBundle":false,"_integrity":"sha512-2nlHhJSwOtc1yrhOR8nAzHIqtA0tVJkj2DtjPTDvARuVuA28PffKlk45/vdRyOHERUQf+aUUgV7MZPpZj7JoZQ==","_location":"/react-email-editor","_phantomChildren":{},"_requested":{"type":"tag","registry":true,"raw":"react-email-editor","name":"react-email-editor","escapedName":"react-email-editor","rawSpec":"","saveSpec":null,"fetchSpec":"latest"},"_requiredBy":["#USER","/"],"_resolved":"https://registry.npmjs.org/react-email-editor/-/react-email-editor-1.2.0.tgz","_shasum":"dfc0e6a19f5dfeab4c77fc2c38cd37a3acf2af6e","_spec":"react-email-editor","_where":"C:\\\\xampp\\\\htdocs\\\\page_wifi","author":"","bugs":{"url":"https://github.com/unlayer/react-email-editor/issues"},"bundleDependencies":false,"dependencies":{},"deprecated":false,"description":"Unlayer\'s Email Editor Component for React.js","devDependencies":{"nwb":"^0.22.0","react":"^16.13.1","react-dom":"^16.13.1","react-router-dom":"^5.2.0","styled-components":"^4.2.0"},"files":["css","es","lib","umd"],"homepage":"https://github.com/unlayer/react-email-editor#readme","keywords":["react-component"],"license":"MIT","main":"lib/index.js","module":"es/index.js","name":"react-email-editor","peerDependencies":{"react":"15.x || 16.x"},"repository":{"type":"git","url":"git+https://github.com/unlayer/react-email-editor.git"},"scripts":{"build":"nwb build-react-component","clean":"nwb clean-module && nwb clean-demo","release":"npm run build && npm publish","start":"nwb serve-react-demo","test":"nwb test-react","test:coverage":"nwb test-react --coverage","test:watch":"nwb test-react --server"},"version":"1.2.0"}');
 
 /***/ }),
 
