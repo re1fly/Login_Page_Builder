@@ -7745,7 +7745,7 @@ var Example = function Example(props) {
   var classes = useStyles();
   var emailEditorRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
 
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('null'),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(dataJson),
       _useState2 = _slicedToArray(_useState, 2),
       dataJson = _useState2[0],
       setDataJson = _useState2[1];
@@ -7773,6 +7773,8 @@ var Example = function Example(props) {
         })
       };
       axios__WEBPACK_IMPORTED_MODULE_3___default().post('http://127.0.0.1:8000/json', dataJson).then(function (response) {
+        if (response.status === 200) {}
+
         console.log(response);
       })["catch"](function (err) {
         console.error(err);
@@ -7781,18 +7783,12 @@ var Example = function Example(props) {
     });
   };
 
-  var onLoad = function onLoad() {// const options = {
-    //     method: 'GET',
-    //     headers: {'Content-Type': 'application/json'},
-    // };
-    //
-    // fetch('http://127.0.0.1:8000/json', options)
-    //     .then(response => {
-    //         if(response.status === 200)
-    //             emailEditorRef.current.editor.loadDesign(response.data);
-    //             console.log(response);
-    //     })
-    //     .catch(err => console.error(err));
+  var onLoad = function onLoad() {
+    axios__WEBPACK_IMPORTED_MODULE_3___default().get('http://127.0.0.1:8000/json').then(function (response) {
+      // setDataJson(response.data.results);
+      emailEditorRef.current.editor.loadDesign(response.data.results);
+      console.log(response);
+    }); // emailEditorRef.current.editor.loadDesign(dataJson);
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
