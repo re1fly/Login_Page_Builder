@@ -19,6 +19,8 @@ Route::get('/', function () {
 
 Route::view('editor', 'app');
 
+Route::get('testing', 'Controller@testing');
+
 Route::get('html', 'Controller@getHtml');
 Route::post('html', 'Controller@saveHtml');
 

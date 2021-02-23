@@ -3,12 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\TemplateRequest;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
-use SebastianBergmann\Template\Template;
 
 class Controller extends BaseController
 {
@@ -23,6 +22,11 @@ class Controller extends BaseController
         $this->tmpDir = storage_path('tmp');
         $this->htmlPath = $this->tmpDir . '/template_html.html';
         $this->jsonPath = $this->tmpDir . '/template_json.json';
+    }
+
+    public function testing(Request $request)
+    {
+        $this->saveImageFromUrl();
     }
 
     public function getHtml()
@@ -75,6 +79,17 @@ class Controller extends BaseController
         $content = json_decode($content, true);
 
         return ['status' => 'success', 'results' => $content];
+    }
+
+    private function saveImageFromUrl()
+    {
+        $ch = curl_init('https://unroll-images-production.s3.amazonaws.com/projects/0/1613982288069-WhatsApp%20Image%202021-02-05%20at%2011.04.55.jpeg');
+        $fp = fopen($this->tmpDir . '/testing.jpeg', 'wb');
+        curl_setopt($ch, CURLOPT_FILE, $fp);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_exec($ch);
+        curl_close($ch);
+        fclose($fp);
     }
 
 }

@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useRef} from 'react';
 import ReactDOM from 'react-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import EmailEditor from 'react-email-editor'
@@ -21,8 +21,6 @@ const Example = (props) => {
 
     const emailEditorRef = useRef(null);
 
-    const [dataJson, setDataJson] = useState('null')
-
     const exportHtml = () => {
         emailEditorRef.current.editor.exportHtml((data) => {
             const { design, html } = data;
@@ -43,29 +41,15 @@ const Example = (props) => {
                 .then(response => console.log(response))
                 .catch(err => console.error(err));
             // console.log('saveDesign', design);
-            // alert('Design JSON has been logged in your developer console.');
+            alert('Design JSON has been logged in your developer console.');
         });
-
     };
 
     const onLoad = () => {
-
-        const options = {
-            method: 'GET',
-            headers: {'Content-Type': 'application/json'},
-        };
-
-        fetch('http://htmleditor.com/json', options)
-            .then(response => {
-                if(response.status === 200)
-                    emailEditorRef.current.editor.loadDesign(response.data);
-            })
-            .catch(err => console.error(err));
-
-
+        // you can load your template here;
+        // const templateJson = {};
+        // emailEditorRef.current.editor.loadDesign(templateJson);
     };
-
-
 
 
 
@@ -75,9 +59,10 @@ const Example = (props) => {
                 <Button className={classes.marginButton} variant="outlined" color="primary" onClick={exportHtml}>Export HTML</Button>
                 <Button variant="outlined" color="primary" onClick={saveDesign}>Save Design as JSON</Button>
             </Grid>
-            <React.StrictMode>
-                <EmailEditor ref={emailEditorRef} onLoad={onLoad} />
-            </React.StrictMode>
+            <EmailEditor
+                ref={emailEditorRef}
+                onLoad={onLoad}
+            />
         </div>
     );
 };
