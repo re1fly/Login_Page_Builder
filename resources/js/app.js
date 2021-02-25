@@ -13,7 +13,7 @@ require('./bootstrap');
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+import {BrowserRouter as Router, Link} from 'react-router-dom';
 import Routes from "./components/Routes";
 import {Box, Button, ButtonGroup} from "@material-ui/core";
 
@@ -28,7 +28,7 @@ class App extends React.Component {
                     </ButtonGroup>
                 </Box>
 
-                    <Routes />
+                <Routes/>
             </Router>
         )
     }

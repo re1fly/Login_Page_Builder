@@ -4,6 +4,7 @@ import {makeStyles} from '@material-ui/core/styles';
 import EmailEditor from 'react-email-editor'
 import {Button, Container, Grid} from "@material-ui/core";
 import axios from 'axios';
+import TemplateHotel from './templates/TemplateHotel'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -18,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Design = (props) => {
+
     const classes = useStyles();
 
     const emailEditorRef = useRef(null);
@@ -32,7 +34,7 @@ const Design = (props) => {
 
             const dataHtml = {
                 template: data.html
-            };
+            }
 
             axios.post('http://127.0.0.1:8000/html', dataHtml).then(response => {
                 console.log(response);
@@ -42,31 +44,34 @@ const Design = (props) => {
             })
             // console.log('exportHtml', html);
             // alert('Design HTML has been saved in your developer console.');
-        });
-    };
+        })
+    }
 
     const saveDesign = () => {
         emailEditorRef.current.editor.saveDesign((design) => {
             const dataJson = {
                 template: JSON.stringify({design})
             };
-
             axios.post('http://127.0.0.1:8000/json', dataJson).then(response => {
-
+                console.log(response)
             }).catch((err) => {
                 console.error(err)
             })
 
+
             // // console.log('saveDesign', design);
             // // alert('Design JSON has been logged in your developer console.');
-        });
+        })
 
-    };
+    }
 
     const onLoad = () => {
         axios.get('http://127.0.0.1:8000/json').then(response => {
-            emailEditorRef.current.editor.loadDesign(JSON.parse(response.data.results).design);
+            emailEditorRef.current.editor.loadDesign(response.data.results);
+            console.log(response)
         })
+
+        // emailEditorRef.current.editor.loadDesign(TemplateHotel);
     };
 
 
@@ -79,7 +84,19 @@ const Design = (props) => {
                     Design as JSON</Button>
             </Grid>
             <React.StrictMode>
-                <EmailEditor ref={emailEditorRef} onLoad={onLoad}/>
+                <EmailEditor ref={emailEditorRef}
+                             onLoad={onLoad}
+                             appearance={{
+                                 theme: 'dark',
+                             }}
+                             tools={{
+                                 form: {
+                                     enabled: true
+                                 }
+                             }}
+                             displayMode='web'
+
+                />
             </React.StrictMode>
         </div>
     );

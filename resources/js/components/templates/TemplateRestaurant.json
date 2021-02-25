@@ -1,5 +1,5 @@
 {
-    "design": {
+
         "counters": {
             "u_column": 7,
             "u_row": 4,
@@ -296,4 +296,4 @@
         },
         "schemaVersion": 5
     }
-}
+

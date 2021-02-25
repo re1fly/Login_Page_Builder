@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1e9ffe52-ca43-4dc9-8386-7a563a35150f" name="Default" comment="get json design">
+    <list default="true" id="1e9ffe52-ca43-4dc9-8386-7a563a35150f" name="Default" comment="Create SPA and adding some template">
+      <change afterPath="$PROJECT_DIR$/resources/js/components/FormPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Example.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Design.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Form.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Form.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/assets/templates/template-hotel.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/templates/TemplateHotel.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/assets/templates/template-restaurant.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/templates/TemplateRestaurant.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Design.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Design.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Form.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Routes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/tmp/template_html.html" beforeDir="false" afterPath="$PROJECT_DIR$/storage/tmp/template_html.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/tmp/template_json.json" beforeDir="false" afterPath="$PROJECT_DIR$/storage/tmp/template_json.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
@@ -18,7 +25,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -393,12 +400,19 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\page_wifi\app\Http\Controllers" />
+      <recent name="C:\xampp\htdocs\page_wifi\resources\js\src" />
+      <recent name="C:\xampp\htdocs\page_wifi\resources\js\components" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\page_wifi\app\Http\Controllers" />
+      <recent name="C:\xampp\htdocs\page_wifi\resources\js\components\templates" />
       <recent name="C:\xampp\htdocs\page_wifi\resources\js\components" />
     </key>
   </component>
@@ -426,7 +440,9 @@
       <option name="presentableId" value="Default" />
       <updated>1613972362540</updated>
       <workItem from="1613972364474" duration="4235000" />
-      <workItem from="1614039285221" duration="21359000" />
+      <workItem from="1614039285221" duration="23559000" />
+      <workItem from="1614125060175" duration="9898000" />
+      <workItem from="1614212037447" duration="25293000" />
     </task>
     <task id="LOCAL-00001" summary="post api with axios">
       <created>1614043274906</created>
@@ -456,7 +472,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614058307941</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Create SPA and adding some template">
+      <created>1614069175203</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1614069175203</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -495,7 +518,8 @@
     <MESSAGE value="post api with axios" />
     <MESSAGE value="post api html" />
     <MESSAGE value="get json design" />
-    <option name="LAST_COMMIT_MESSAGE" value="get json design" />
+    <MESSAGE value="Create SPA and adding some template" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create SPA and adding some template" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
