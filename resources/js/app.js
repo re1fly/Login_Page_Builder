@@ -11,5 +11,34 @@ require('./bootstrap');
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
+import Routes from "./components/Routes";
+import {Box, Button, ButtonGroup} from "@material-ui/core";
 
-require('./components/Example');
+class App extends React.Component {
+    render() {
+        return (
+            <Router>
+                <Box textAlign='center'>
+                    <ButtonGroup disableElevation variant="contained" color="inherit">
+                        <Button><Link to={'/editor/form'}>Form</Link></Button>
+                        <Button><Link to={'/editor/design'}>Design</Link></Button>
+                    </ButtonGroup>
+                </Box>
+
+                    <Routes />
+            </Router>
+        )
+    }
+}
+
+export default App;
+
+if (document.getElementById('app')) {
+    ReactDOM.render(
+        <App/>
+        , document.getElementById('app'));
+}
+// require('./components/Example');

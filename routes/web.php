@@ -13,11 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
-Route::view('editor', 'app');
+//Route::view('editor', 'app');
 
 Route::get('testing', 'Controller@testing');
 
@@ -29,3 +29,7 @@ Route::post('json', 'Controller@saveJson');
 
 Route::get('form', 'Controller@getForm');
 Route::post('form', 'Controller@saveForm');
+
+Route::get('/', function () {
+    return view('app');
+});
