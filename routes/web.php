@@ -26,3 +26,6 @@ Route::post('html', 'Controller@saveHtml');
 
 Route::get('json', 'Controller@getJson');
 Route::post('json', 'Controller@saveJson');
+
+Route::get('form', 'Controller@getForm');
+Route::post('form', 'Controller@saveForm');
