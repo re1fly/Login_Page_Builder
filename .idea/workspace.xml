@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1e9ffe52-ca43-4dc9-8386-7a563a35150f" name="Default" comment="laravel design editor">
+    <list default="true" id="1e9ffe52-ca43-4dc9-8386-7a563a35150f" name="Default" comment="sending form">
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
@@ -430,7 +430,7 @@
       <workItem from="1614740628254" duration="5087000" />
       <workItem from="1614843558362" duration="3122000" />
       <workItem from="1614846734751" duration="4298000" />
-      <workItem from="1615162565182" duration="958000" />
+      <workItem from="1615162565182" duration="1273000" />
     </task>
     <task id="LOCAL-00001" summary="post api with axios">
       <created>1614043274906</created>
@@ -460,7 +460,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614058307941</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="sending form">
+      <created>1615163830920</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1615163830920</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -499,7 +506,8 @@
     <MESSAGE value="post api with axios" />
     <MESSAGE value="post api html" />
     <MESSAGE value="get json design" />
-    <option name="LAST_COMMIT_MESSAGE" value="get json design" />
+    <MESSAGE value="sending form" />
+    <option name="LAST_COMMIT_MESSAGE" value="sending form" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
