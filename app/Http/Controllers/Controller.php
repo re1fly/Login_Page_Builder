@@ -2,8 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Constants\FormType;
+use App\Constants\ValidationAttribute;
+use App\Constants\ValidationType;
+use App\Helpers\Request\Validation;
+use App\Helpers\Response\Constants\Success;
 use App\Http\Requests\FormRequest;
 use App\Http\Requests\TemplateRequest;
+use App\Models\HotspotLoginForm;
+use App\Models\HotspotLoginPage;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -15,6 +22,7 @@ use Illuminate\Support\Str;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
 
     private $tmpDir;
     private $htmlPath;
@@ -32,143 +40,150 @@ class Controller extends BaseController
 
     public function testing(Request $request)
     {
-        return substr(strrchr('testing.test.php', '.'), 1);
+        $loginPage = HotspotLoginForm::first();
+
+        return $loginPage;
     }
 
-    public function getHtml()
+    /**
+     * @param HotspotLoginForm $loginForm
+     *
+     * @return array
+     */
+    private function setRulesFromLoginForm(HotspotLoginForm $loginForm): array
     {
-        $content = file_get_contents($this->htmlPath);
-
-        return ['status' => 'success', 'results' => $content];
-    }
-
-    public function saveHtml(TemplateRequest $request)
-    {
-        if (!file_exists($this->tmpDir)) {
-            mkdir($this->tmpDir, 0777, true);
+        $forms = $loginForm->forms;
+        if (!$forms || !is_array($forms)) {
+            return [];
         }
 
-        if (file_exists($this->htmlPath)) {
-            unlink($this->htmlPath);
-        }
+        $rules = [];
+        foreach ($forms as $form) {
 
-        fopen($this->htmlPath, 'w');
-        file_put_contents($this->htmlPath, $request->template);
+            if (isset($form['validations'])) {
 
-        $content = file_get_contents($this->htmlPath);
+                $validations = $form['validations'];
+                if (is_array($validations)) {
 
-        return ['status' => 'success', 'results' => $content];
-    }
+                    $validate = '';
 
-    public function getJson()
-    {
-        $content = file_get_contents($this->jsonPath);
-        $content = json_decode($content, true);
-
-        return ['status' => 'success', 'results' => $content];
-    }
-
-    public function saveJson(TemplateRequest $request)
-    {
-        $template = json_decode($request->template, true);
-
-        if (!file_exists($this->tmpDir)) {
-            mkdir($this->tmpDir, 0777, true);
-        }
-
-        if (file_exists($this->formPath)) {
-            unlink($this->jsonPath);
-        }
-
-        $design = $this->setDesign($template);
-
-        fopen($this->jsonPath, 'w');
-        file_put_contents($this->jsonPath, json_encode($template['design'], true));
-
-        $content = file_get_contents($this->jsonPath);
-        $content = json_decode($content, true);
-
-        return ['status' => 'success', 'results' => $content];
-    }
-
-    public function getForm()
-    {
-        $content = file_get_contents($this->formPath);
-        $content = json_decode($content, true);
-
-        return ['status' => 'success', 'results' => $content];
-    }
-
-    public function saveForm(FormRequest $request)
-    {
-        $form = json_decode($request->form, true);
-
-        if (!file_exists($this->tmpDir)) {
-            mkdir($this->tmpDir, 0777, true);
-        }
-
-        if (file_exists($this->formPath)) {
-            unlink($this->formPath);
-        }
-
-        fopen($this->formPath, 'w');
-        file_put_contents($this->formPath, json_encode($form, true));
-
-        $content = file_get_contents($this->formPath);
-        $content = json_decode($content, true);
-
-        return ['status' => 'success', 'results' => $content];
-    }
-
-    private function setDesign($template)
-    {
-        if (isset($template['design']['body']['rows'])) {
-
-            foreach ($template['design']['body']['rows'] as $rowKey => $row) {
-
-                if (isset($row['columns'])) {
-
-                    foreach ($row['columns'] as $columnKey => $column) {
-
-                        if (isset($column['contents'])) {
-
-                            foreach ($column['contents'] as $contentKey => $content) {
-
-                                if (isset($content['type'])) {
-
-                                    if ($content['type'] == 'image') {
-
-                                        if ($content['values']['src']['url']) {
-                                            $this->saveImageFromUrl($content['values']['src']['url']);
-                                        }
-
-                                    }
-
-                                }
-
-                            }
-
-                        }
-
+                    if ($validations[ValidationAttribute::REQUIRED]) {
+                        $validate .= ValidationAttribute::REQUIRED;
                     }
+
+                    if ($validations[ValidationAttribute::TYPE]['id'] != ValidationType::OTHER_ID) {
+                        $validate .= ($validate ? '|' : '') .
+                            strtolower(ValidationType::getName($validations[ValidationAttribute::TYPE]['id']));
+                    }
+
+                    if ($validations[ValidationAttribute::DATE_FORMAT]) {
+                        $validate .= ($validate ? '|' : '') . ValidationAttribute::DATE_FORMAT . ':"'
+                            . $validations[ValidationAttribute::DATE_FORMAT] . '"';
+                    }
+
+                    if ($validations[ValidationAttribute::NULLABLE]) {
+                        $validate .= ($validate ? '|' : '') . ValidationAttribute::NULLABLE;
+                    }
+
+                    $rules[$form['name']] = $validate;
 
                 }
 
             }
 
         }
+
+        return $rules;
     }
 
-    private function saveImageFromUrl($url)
+    private function validation(Request $request)
     {
-        $filename = Str::random(16) . '.' . substr(strrchr($url, '.'), 1);
-        $ch = curl_init($url);
-        $fp = fopen($this->tmpDir . '/' . $filename, 'wb');
-        curl_setopt($ch, CURLOPT_FILE, $fp);
-        curl_setopt($ch, CURLOPT_HEADER, 0);
-        curl_exec($ch);
-        curl_close($ch);
-        fclose($fp);
+        Validation::request($request->all(), ['testing' => 'email']);
+
+        Validation::request($request, ['testing2' => 'required']);
+    }
+
+    private function testingSaveLoginPage(string $serviceLocationId)
+    {
+        $loginPage = HotspotLoginPage::updateOrCreate(['serviceLocationId' => $serviceLocationId], [
+            'company' => 'Testing'
+        ]);
+
+        HotspotLoginForm::updateOrCreate(['loginPageId' => $loginPage->id], [
+            'forms' => $this->setFormAttributes()
+        ]);
+    }
+
+    private function setFormAttributes()
+    {
+        return [
+            [
+                'name' => 'name',
+                'type' => FormType::getIDName(FormType::TEXT_ID),
+                'icon' => null,
+                'validations' => [
+                    'type' => ValidationType::getIDName(ValidationType::STRING_ID),
+                    'required' => true,
+                    'date_format' => null,
+                    'nullable' => false
+                ]
+            ],
+            [
+                'name' => 'phone_number',
+                'type' => FormType::getIDName(FormType::NUMBER_ID),
+                'icon' => null,
+                'validations' => [
+                    'type' => ValidationType::getIDName(ValidationType::INTEGER_ID),
+                    'required' => true,
+                    'date_format' => null,
+                    'nullable' => false
+                ]
+            ],
+            [
+                'name' => 'email',
+                'type' => FormType::getIDName(FormType::TEXT_ID),
+                'icon' => null,
+                'validations' => [
+                    'type' => ValidationType::getIDName(ValidationType::EMAIL_ID),
+                    'required' => true,
+                    'date_format' => null,
+                    'nullable' => false
+                ]
+            ],
+            [
+                'name' => 'birth_date',
+                'type' => FormType::getIDName(FormType::DATE_ID),
+                'icon' => null,
+                'validations' => [
+                    'type' => ValidationType::getIDName(ValidationType::OTHER_ID),
+                    'required' => true,
+                    'date_format' => 'd/m/Y',
+                    'nullable' => false
+                ]
+            ],
+            [
+                'name' => 'gender',
+                'type' => FormType::getIDName(FormType::RADIO_BUTTON_ID),
+                'icon' => null,
+                'validations' => [
+                    'type' => ValidationType::getIDName(ValidationType::INTEGER_ID),
+                    'required' => true,
+                    'date_format' => null,
+                    'nullable' => false
+                ]
+            ],
+            [
+                'name' => 'married',
+                'type' => FormType::getIDName(FormType::RADIO_BUTTON_ID),
+                'icon' => null,
+                'validations' => [
+                    'type' => ValidationType::getIDName(ValidationType::BOOLEAN_ID),
+                    'required' => false,
+                    'date_format' => null,
+                    'nullable' => true
+                ]
+            ],
+        ];
     }
 
 }

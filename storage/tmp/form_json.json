@@ -1,1 +1,68 @@
-"{\"testing\": 'test'}"
+[
+  {
+    "name": "name",
+    "typeId": 1,
+    "icon": null,
+    "validations": {
+      "typeId": 1,
+      "required": true,
+      "date_format": null,
+      "nullable": false
+    }
+  },
+  {
+    "name": "phone_number",
+    "typeId": 2,
+    "icon": null,
+    "validations": {
+      "typeId": 2,
+      "required": true,
+      "date_format": null,
+      "nullable": false
+    }
+  },
+  {
+    "name": "email",
+    "typeId": 1,
+    "icon": null,
+    "validations": {
+      "typeId": 4,
+      "required": true,
+      "date_format": null,
+      "nullable": false
+    }
+  },
+  {
+    "name": "birth_date",
+    "typeId": 6,
+    "icon": null,
+    "validations": {
+      "typeId": 0,
+      "required": true,
+      "date_format": "d\/m\/Y",
+      "nullable": false
+    }
+  },
+  {
+    "name": "gender",
+    "typeId": 2,
+    "icon": null,
+    "validations": {
+      "typeId": 2,
+      "required": true,
+      "date_format": null,
+      "nullable": false
+    }
+  },
+  {
+    "name": "married",
+    "typeId": 3,
+    "icon": null,
+    "validations": {
+      "typeId": 3,
+      "required": false,
+      "date_format": null,
+      "nullable": true
+    }
+  }
+]

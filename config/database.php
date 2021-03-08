@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_SMART_WIFI_CONNECTION', 'mysql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -52,6 +52,66 @@ return [
             'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),
             'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'strict' => true,
+            'engine' => null,
+            'options' => extension_loaded('pdo_mysql') ? array_filter([
+                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+            ]) : [],
+        ],
+
+        'smart_wifi' => [
+            'driver' => 'mysql',
+            'url' => env('DATABASE_URL'),
+            'host' => env('DB_SMART_WIFI_HOST', '127.0.0.1'),
+            'port' => env('DB_SMART_WIFI_PORT', '3306'),
+            'database' => env('DB_SMART_WIFI_DATABASE', 'forge'),
+            'username' => env('DB_SMART_WIFI_USERNAME', 'forge'),
+            'password' => env('DB_SMART_WIFI_PASSWORD', ''),
+            'unix_socket' => env('DB_SMART_WIFI_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'strict' => true,
+            'engine' => null,
+            'options' => extension_loaded('pdo_mysql') ? array_filter([
+                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+            ]) : [],
+        ],
+
+        'customer' => [
+            'driver' => 'mysql',
+            'url' => env('DATABASE_URL'),
+            'host' => env('DB_CUSTOMER_HOST', '127.0.0.1'),
+            'port' => env('DB_CUSTOMER_PORT', '3306'),
+            'database' => env('DB_CUSTOMER_DATABASE', 'forge'),
+            'username' => env('DB_CUSTOMER_USERNAME', 'forge'),
+            'password' => env('DB_CUSTOMER_PASSWORD', ''),
+            'unix_socket' => env('DB_CUSTOMER_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'strict' => true,
+            'engine' => null,
+            'options' => extension_loaded('pdo_mysql') ? array_filter([
+                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+            ]) : [],
+        ],
+
+        'network' => [
+            'driver' => 'mysql',
+            'url' => env('DATABASE_URL'),
+            'host' => env('DB_NETWORK_HOST', '127.0.0.1'),
+            'port' => env('DB_NETWORK_PORT', '3306'),
+            'database' => env('DB_NETWORK_DATABASE', 'forge'),
+            'username' => env('DB_NETWORK_USERNAME', 'forge'),
+            'password' => env('DB_NETWORK_PASSWORD', ''),
+            'unix_socket' => env('DB_NETWORK_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
             'prefix' => '',
