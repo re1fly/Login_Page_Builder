@@ -12,7 +12,7 @@ class Router extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $connection = 'network';
+    protected $connection = 'smart_wifi';
     protected $table = 'routers';
     protected $guarded = [''];
 

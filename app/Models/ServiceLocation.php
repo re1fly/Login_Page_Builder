@@ -10,7 +10,7 @@ class ServiceLocation extends Model
 {
     use HasFactory;
 
-    protected $connection = 'customer';
+    protected $connection = 'smart_wifi';
     protected $table = 'serviceLocations';
     protected $guarded = [''];
 
