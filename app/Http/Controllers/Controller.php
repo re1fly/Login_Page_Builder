@@ -21,6 +21,7 @@ class Controller extends BaseController
     private $jsonPath;
     private $formPath;
 
+
     public function __construct()
     {
         $this->tmpDir = storage_path('tmp');

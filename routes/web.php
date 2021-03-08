@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Converter;
+use App\Http\Controllers\Form;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +15,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/welcome', function () {
-    return view('welcome');
+Route::get('/design', function () {
+    return view('design');
 });
+
+Route::get('/datahtml',[Converter::class, 'convertHtml']);
+
+Route::post('/login',[Form::class, 'login']);
+
+//Route::get('/datahtml', function () {
+//    return view('data_html');
+//});
 
 //Route::view('editor', 'app');
 
