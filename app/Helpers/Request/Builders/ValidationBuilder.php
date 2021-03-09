@@ -14,11 +14,6 @@ use Illuminate\Support\Facades\Validator;
 class ValidationBuilder implements ValidationInterface
 {
     /**
-     * @var HotspotLoginForm
-     */
-    public $loginForm;
-
-    /**
      * @var Request|array
      */
     public $request;
@@ -43,17 +38,9 @@ class ValidationBuilder implements ValidationInterface
     }
 
     /**
-     * @param HotspotLoginForm $loginForm
+     * @param array|HotspotLoginForm $rules
      */
-    public function setLoginForm(HotspotLoginForm $loginForm)
-    {
-        $this->loginForm = $loginForm;
-    }
-
-    /**
-     * @param array $rules
-     */
-    public function setRules(array $rules)
+    public function setRules($rules)
     {
         $this->rules = $rules;
     }
@@ -74,8 +61,8 @@ class ValidationBuilder implements ValidationInterface
      */
     public function process(ValidationBuilder $builder)
     {
-        if ($builder->loginForm) {
-            $builder->rules = $this->setRulesFromLoginForm($builder->loginForm);
+        if ($builder->rules instanceof HotspotLoginForm) {
+            $builder->rules = $this->setRulesFromLoginForm($builder->rules);
         }
 
         $request = $builder->request;
@@ -85,7 +72,7 @@ class ValidationBuilder implements ValidationInterface
 
         $validator = Validator::make($request, $builder->rules);
         if ($validator->fails()) {
-            throw new RequestException($validator);
+            throw new RequestException($validator, $this->errorRedirectToBack);
         }
     }
 

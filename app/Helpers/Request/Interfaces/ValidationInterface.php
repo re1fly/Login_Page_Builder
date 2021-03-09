@@ -14,14 +14,9 @@ interface ValidationInterface
     public function setRequest($request);
 
     /**
-     * @param HotspotLoginForm $loginForm
+     * @param array|HotspotLoginForm $rules
      */
-    public function setLoginForm(HotspotLoginForm $loginForm);
-
-    /**
-     * @param array $rules
-     */
-    public function setRules(array $rules);
+    public function setRules($rules);
 
     /**
      * @param ValidationBuilder $builder
