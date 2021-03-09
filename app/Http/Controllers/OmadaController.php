@@ -38,7 +38,7 @@ class OmadaController extends Controller
         $loginPage = $serviceLocation->loginPage;
         abort_if(!$loginPage, 404, Error::LOGIN_PAGE['LOGIN_PAGE_NOT_FOUND'][1]);
 
-        Validation::loginFormRequest($loginPage->form, $request, true);
+        Validation::request($request, $loginPage->form,true);
 
         $saveGuest = $loginPage->saveGuest($request);
         throw_if(!$saveGuest, new ProcessFailedException(Error::LOGIN_PAGE['UNABLE_TO_SAVE_GUEST_DATA']));
