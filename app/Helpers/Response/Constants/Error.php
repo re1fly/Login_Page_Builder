@@ -25,6 +25,7 @@ class Error
         'LOGIN_PAGE_NOT_FOUND' => [20002, 'Hotspot login page not found'],
         'UNABLE_TO_DECODE_FORM' => [20003, 'Unable to decode form'],
         'UNABLE_TO_SAVE_FORM' => [20004, 'Unable to save form'],
+        'UNABLE_TO_SAVE_GUEST_DATA' => [20005, 'Unable to save guest data'],
     ];
 
 

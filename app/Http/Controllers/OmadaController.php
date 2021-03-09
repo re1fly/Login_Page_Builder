@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Exceptions\DataNotFoundException;
+use App\Exceptions\ProcessFailedException;
 use App\Helpers\Request\Validation;
 use App\Helpers\Response\Constants\Error;
 use App\Models\ServiceLocation;
@@ -20,7 +21,6 @@ class OmadaController extends Controller
 
     public function show(string $serviceLocationUUID)
     {
-        throw_if(true, new DataNotFoundException(Error::SERVICE_LOCATION['SERVICE_LOCATION_NOT_FOUND']));
         $serviceLocation = ServiceLocation::where('uuid', $serviceLocationUUID)->first();
         abort_if(!$serviceLocation, 404, Error::SERVICE_LOCATION['SERVICE_LOCATION_NOT_FOUND'][1]);
 
@@ -38,7 +38,10 @@ class OmadaController extends Controller
         $loginPage = $serviceLocation->loginPage;
         abort_if(!$loginPage, 404, Error::LOGIN_PAGE['LOGIN_PAGE_NOT_FOUND'][1]);
 
-        Validation::loginFormRequest($loginPage->form, $request);
+        Validation::loginFormRequest($loginPage->form, $request, true);
+
+        $saveGuest = $loginPage->saveGuest($request);
+        throw_if(!$saveGuest, new ProcessFailedException(Error::LOGIN_PAGE['UNABLE_TO_SAVE_GUEST_DATA']));
 
         self::omadaControllerLogin($request);
 
@@ -56,47 +59,50 @@ class OmadaController extends Controller
 
     private static function omadaControllerLogin(Request $request)
     {
-        $ch = curl_init();
+        try {
 
-        curl_setopt($ch, CURLOPT_POST, TRUE);
+            $ch = curl_init();
 
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_POST, TRUE);
 
-        curl_setopt($ch, CURLOPT_COOKIEJAR, storage_path("app/omada/cookies-$request->clientMac.txt"));
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
-        curl_setopt($ch, CURLOPT_COOKIEFILE, storage_path("app/omada/cookies-$request->clientMac.txt"));
+            curl_setopt($ch, CURLOPT_COOKIEJAR, storage_path("app/omada/cookies-$request->clientMac.txt"));
 
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+            curl_setopt($ch, CURLOPT_COOKIEFILE, storage_path("app/omada/cookies-$request->clientMac.txt"));
 
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
 
-        curl_setopt($ch, CURLOPT_URL, self::CONTROLLER_SERVER . "/api/v2/hotspot/login");
+            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
 
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode([
-            'name' => self::CONTROLLER_USER,
-            'password' => self::CONTROLLER_PASSWORD
-        ]));
+            curl_setopt($ch, CURLOPT_URL, self::CONTROLLER_SERVER . "/api/v2/hotspot/login");
 
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode([
+                'name' => self::CONTROLLER_USER,
+                'password' => self::CONTROLLER_PASSWORD
+            ]));
 
-        $res = curl_exec($ch);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
 
-        $resObj = json_decode($res);
+            $res = curl_exec($ch);
 
-        if ($resObj->errorCode == 0) {
-            self::$csrfToken = $resObj->result->token;
+            $resObj = json_decode($res);
+
+            if ($resObj->errorCode == 0) {
+                self::$csrfToken = $resObj->result->token;
+            }
+
+            curl_close($ch);
+
+        } catch (\Exception $exception) {
+            Log::info($exception);
+            throw new ProcessFailedException(null, $exception->getMessage());
         }
-
-        curl_close($ch);
-
     }
 
     private static function omadaAuthorize($request)
     {
-
         try {
-
-            // Send user to authorize and the time allowed
 
             $expireTime = 6 * 3600 * 1000; // 6 hours
             $authInfo = [
@@ -141,38 +147,44 @@ class OmadaController extends Controller
 
         } catch (\Exception $exception) {
             Log::info($exception);
+            throw new ProcessFailedException(null, $exception->getMessage());
         }
     }
 
     private static function omadaControllerLogout(Request $request)
     {
+        try {
 
-        $ch = curl_init();
+            $ch = curl_init();
 
-        curl_setopt($ch, CURLOPT_POST, TRUE);
+            curl_setopt($ch, CURLOPT_POST, TRUE);
 
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
-        curl_setopt($ch, CURLOPT_COOKIEJAR, storage_path("app/omada/cookies-$request->clientMac.txt"));
+            curl_setopt($ch, CURLOPT_COOKIEJAR, storage_path("app/omada/cookies-$request->clientMac.txt"));
 
-        curl_setopt($ch, CURLOPT_COOKIEFILE, storage_path("app/omada/cookies-$request->clientMac.txt"));
+            curl_setopt($ch, CURLOPT_COOKIEFILE, storage_path("app/omada/cookies-$request->clientMac.txt"));
 
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
 
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
 
-        $csrfToken = self::$csrfToken;
+            $csrfToken = self::$csrfToken;
 
-        curl_setopt($ch, CURLOPT_URL, self::CONTROLLER_SERVER . "/api/v2/hotspot/logout" . "?token=" . $csrfToken);
+            curl_setopt($ch, CURLOPT_URL, self::CONTROLLER_SERVER . "/api/v2/hotspot/logout" . "?token=" . $csrfToken);
 
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
 
-        $res = curl_exec($ch);
+            $res = curl_exec($ch);
 
-        $resObj = json_decode($res);
+            $resObj = json_decode($res);
 
-        curl_close($ch);
+            curl_close($ch);
 
+        } catch (\Exception $exception) {
+            Log::info($exception);
+            throw new ProcessFailedException(null, $exception->getMessage());
+        }
     }
 
 }

@@ -15,9 +15,11 @@ class CreateGuestsTable extends Migration
     {
         Schema::connection('smart_wifi')->create('guests', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('loginPageId');
             $table->tinyInteger('loginTypeId');
             $table->char('userId', 36)->nullable();
-            $table->json('attributes');
+            $table->json('attributes')->nullable();
+            $table->json('log');
             $table->dateTime('date');
             $table->timestamps();
         });

@@ -40,9 +40,22 @@ class Controller extends BaseController
 
     public function testing(Request $request)
     {
-        $loginPage = HotspotLoginForm::first();
+        $url = \Request::url();
+        $domain = $this->parseDomain($url);
 
-        return $loginPage;
+        $log = 'IP: ' . \Request::ip() . ' Browser: ' . \Request::header('User-Agent') .
+            ' Domain: ' . $domain .
+            ' attempts to log in';
+
+        return $log;
+    }
+
+    private function parseDomain($url)
+    {
+        $parsed = parse_url($url);
+        $hostname = $parsed['host'];
+        $domain_only = str_replace('www.', '', $hostname);
+        return $domain_only;
     }
 
     /**

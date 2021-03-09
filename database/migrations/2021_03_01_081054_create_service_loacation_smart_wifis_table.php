@@ -13,7 +13,7 @@ class CreateServiceLoacationSmartWifisTable extends Migration
      */
     public function up()
     {
-        Schema::connection('customer')->create('serviceLocationSmartWifis', function (Blueprint $table) {
+        Schema::connection('smart_wifi')->create('serviceLocationSmartWifis', function (Blueprint $table) {
             $table->id();
             $table->foreignId('routerId');
             $table->foreignUuid('serviceLocationId');

@@ -25,8 +25,7 @@ Route::post('/logo-upload', [ WifiSetup::class, 'logoUpload' ])->name('logo.uplo
 
 
 Route::get('/', function () {
-    return redirect()->route('omada.login.show', 'testinafasdfasd')
-        ->withErrors('testing', 'test');
+    return view('testing_login');
 });
 
 Route::get('testing', 'Controller@testing');

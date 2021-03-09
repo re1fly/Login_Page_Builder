@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRoutersTable extends Migration
+class CreateServiceLocationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateRoutersTable extends Migration
      */
     public function up()
     {
-        Schema::connection('smart_wifi')->create('routers', function (Blueprint $table) {
+        Schema::connection('smart_wifi')->create('serviceLocations', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('urlIP');
+            $table->uuid('uuid');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -29,6 +27,6 @@ class CreateRoutersTable extends Migration
      */
     public function down()
     {
-        Schema::connection('network')->dropIfExists('routers');
+        Schema::connection('smart_wifi')->dropIfExists('service_locations');
     }
 }

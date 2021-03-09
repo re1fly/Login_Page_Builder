@@ -127,7 +127,7 @@
 
                 <br>
                 <label>
-                    <input type="checkbox" id="{{ $form['name'] }}" name="{{ $form['name'] }}"> {{ $form['display'] }}
+                    <input type="checkbox" id="{{ $form['name'] }}" name="{{ $form['name'] }}" checked=""> {{ $form['display'] }}
                 </label>
                 <br>
 
