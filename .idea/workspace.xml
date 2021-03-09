@@ -2,78 +2,41 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e9ffe52-ca43-4dc9-8386-7a563a35150f" name="Default" comment="sending form">
-      <change afterPath="$PROJECT_DIR$/app/Constants/FormType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Constants/LoginType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Constants/ValidationAttribute.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Constants/ValidationType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Exceptions/DataNotFoundException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Exceptions/ProcessFailedException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Helpers/FileRequestUpload.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Helpers/LoginFormDecoder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Helpers/Path.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Helpers/Request/Builders/ValidationBuilder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Helpers/Request/FormRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Helpers/Request/Interfaces/ValidationInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Helpers/Request/UseCases/ValidationUseCase.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Helpers/Request/Validation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Helpers/Response/Builders/ResponseBuilder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Helpers/Response/Builders/ResponseData.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Helpers/Response/Constants/Error.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Helpers/Response/Constants/Success.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Helpers/Response/Interfaces/ResponseInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Helpers/Response/Response.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Helpers/Response/Status.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Helpers/Response/UseCases/ResponseUseCase.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Helpers/helpers.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/LoginPageController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/OmadaController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/SocialiteLoginController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/WifiSetup.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/LoginFormRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/LoginPageRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Resources/HotspotLoginFormResource.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Resources/HotspotLoginPageResource.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Guest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/HotspotLoginForm.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/HotspotLoginPage.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Router.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/ServiceLocation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/ServiceLocationSmartWifi.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_03_01_081054_create_service_loacation_smart_wifis_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_03_02_055345_create_guests_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_03_03_074704_create_hotspot_login_pages_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_03_04_010756_create_hotspot_login_forms_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/errors/404.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/errors/500.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/login.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/login_success.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/omada/login_omada.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/omada/login_omada_success.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stubs/request.stub" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Console/Commands/TestCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_03_08_072424_create_service_locations_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/templates/login_template_1.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/testing_login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/html-editor_laravel-react.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/html-editor_laravel-react.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exceptions/RequestException.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exceptions/RequestException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Helpers/Response/Constants/Error.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/Response/Constants/Error.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Form.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/FormRequest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/TemplateRequest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_02_022920_create_routers_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Design.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Example.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Example_OLD.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/FormPage.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Routes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/templates/TemplateHotel.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/templates/TemplateRestaurant.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Converter.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OmadaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OmadaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WifiSetup.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WifiSetup.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/HotspotLoginPage.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/HotspotLoginPage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Router.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/ServiceLocation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ServiceLocation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/ServiceLocationSmartWifi.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ServiceLocationSmartWifi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_01_081054_create_service_loacation_smart_wifis_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_01_081054_create_service_loacation_smart_wifis_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_02_022920_create_routers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_02_022920_create_routers_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_02_055345_create_guests_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_02_055345_create_guests_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/cool-background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/pattern-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider-01.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider-02.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider-03.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/app.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/data.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/design.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/wifi_setup/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/wifi_setup/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/tmp/form_json.json" beforeDir="false" afterPath="$PROJECT_DIR$/storage/tmp/form_json.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -323,13 +286,16 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/images" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\page_wifi\public\images" />
+      <recent name="C:\xampp\htdocs\page_wifi\public\fontpicker" />
+      <recent name="C:\xampp\htdocs\page_wifi\public\font_picker" />
       <recent name="C:\xampp\htdocs\page_wifi\public" />
       <recent name="C:\xampp\htdocs\page_wifi\resources\views\wifi_settings" />
     </key>
@@ -388,7 +354,8 @@
       <workItem from="1615182222458" duration="165000" />
       <workItem from="1615182413281" duration="1000" />
       <workItem from="1615182483180" duration="18000" />
-      <workItem from="1615183959829" duration="4995000" />
+      <workItem from="1615183959829" duration="11719000" />
+      <workItem from="1615248641806" duration="24197000" />
     </task>
     <task id="LOCAL-00001" summary="post api with axios">
       <created>1614043274906</created>
@@ -464,9 +431,6 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />

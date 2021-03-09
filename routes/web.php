@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Converter;
 use App\Http\Controllers\WifiSetup;
 use Illuminate\Support\Facades\Route;
 
@@ -21,7 +20,6 @@ Route::get('/design', function () {
 
 //wifi-setup
 Route::get('/wifi-setup',[WifiSetup::class, 'index']);
-Route::post('/logo-upload', [ WifiSetup::class, 'logoUpload' ])->name('logo.upload.post');
 
 
 Route::get('/', function () {

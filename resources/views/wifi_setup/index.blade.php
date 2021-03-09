@@ -1,139 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title> Wizard Form with Validation - Responsive</title>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="author" content="html.design">
-<!-- description -->
-<meta name="description" content="Wizard Form with Validation - Responsive">
-<link rel="shortcut icon" href="images/favicon.ico">
-<!-- Bootstrap CSS -->
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<!-- Fontawesome CSS -->
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css">
-<!-- Fonts and icons -->
-<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700" rel="stylesheet">
-<!-- Reset CSS -->
-<link rel="stylesheet" href="css/reset.css">
-<!-- Style CSS -->
-<link rel="stylesheet" href="css/style.css">
-<!-- Responsive  CSS -->
-<link rel="stylesheet" href="css/responsive.css">
+    <title> GlobalXtreme Wifi Setup</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="html.design">
+    <!-- description -->
+    <meta name="description" content="Wizard Form with Validation - Responsive">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css">
+    <!-- Fonts and icons -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700" rel="stylesheet">
+    <!-- Reset CSS -->
+    <link rel="stylesheet" href="css/reset.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Responsive  CSS -->
+    <link rel="stylesheet" href="css/responsive.css">
+
+    {{--    Color Picker--}}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/2.5.3/css/bootstrap-colorpicker.css"
+          rel="stylesheet">
+
+    <!-- Font Picker -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href={{asset("fontpicker/jquery.fontselect.css")}}>
+
+
 </head>
 <body>
 
-<div class="wizard-main">
-	<div id="particles-js"></div>
-{{--	<div class="container">--}}
-		<div class="row">
-			<div class="col-lg-12">
-				<h2 class="title-wb">GlobalXtreme WIFI Setup</h2>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-lg-5 login-sec">
-				<div class="login-sec-bg">
-					<h2 class="text-center">Account Information</h2>
-					<form id="example-advanced-form" action="#" style="display: none;">
-						<h3>Branding</h3>
-						<fieldset class="form-input">
-							<h4>Add Your Branding</h4>
+<nav class="navbar navbar-expand-lg navbar-dark static-top" style="background: black">
+    <div class="container">
+        <a class="navbar-brand" href="http://globalxtreme.net">
+            <img src={{asset("images/gx_logo_white.png")}} alt="logoGx" style="width:250px">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
-							<label for="companyName">Your Company Name</label>
-							<input id="companyName" name="companyName" type="text" class="form-control required">
-							<label for="logo">Add A Logo *</label>
-							<input id="logo" name="logo" type="text" class="form-control required">
-							<label for="confirm">Confirm logo *</label>
-							<input id="confirm" name="confirm" type="text" class="form-control required">
-							<p>(*) Mandatory</p>
-						</fieldset>
+<div class=" wizard-main">
+    {{--	<div class="container">--}}
+    <div class="row">
+        <div class="col-lg-5 login-sec">
+            <div class="login-sec-bg">
+                <h2 class="text-center">Make Your Own Login Page</h2>
+                <form id="example-advanced-form" action="#" type="POST" enctype="multipart/form-data"
+                      style="display: none;">
+                    <h3>Branding</h3>
+                    <fieldset class="form-input">
+                        <h4>Setup Your Branding</h4>
+                        <label for="companyName">Your Company Name</label>
+                        <input id="companyName" name="companyName" type="text" class="form-control">
 
-						<h3>Profile</h3>
-						<fieldset class="form-input">
-							<h4>Profile Information</h4>
+                        <label for="logo">Add A Logo *</label>
+                        <input class="form-control" name="logoSetup" type="file" accept="image/*"
+                               onchange="document.getElementById('logo').src = window.URL.createObjectURL(this.files[0])">
 
-							<label for="name">First name *</label>
-							<input id="name" name="name" type="text" class="form-control required">
-							<label for="surname">Last name *</label>
-							<input id="surname" name="surname" type="text" class="form-control required">
-							<label for="email">Email *</label>
-							<input id="email" name="email" type="text" class="form-control form-controlrequired email">
-							<label for="address">Address</label>
-							<input id="address" name="address" type="text" class="form-control">
-							<label for="age">Age (The warning step will show up if age is less than 18) *</label>
-							<input id="age" name="age" type="text" class="form-control required number">
-							<p>(*) Mandatory</p>
-						</fieldset>
+                        <label for="bgImageSetup">Add a Background Image *</label>
+                        <input id="bgImageSetup" name="bgImageSetup" type="file" class="form-control">
 
-						<h3>Warning</h3>
-						<fieldset class="form-input">
-							<h4>You are to young</h4>
-
-							<p>Please go away ;-)</p>
-						</fieldset>
-
-						<h3>Finish</h3>
-						<fieldset class="form-input">
-							<h4>Terms and Conditions</h4>
-
-							<input id="acceptTerms-2" name="acceptTerms" type="checkbox" class="required"> <label for="acceptTerms-2">I agree with the Terms and Conditions.</label>
-						</fieldset>
-					</form>
-				</div>
-			</div>
-            <div class="col-lg-7 banner-sec">
-                <div class="card">
-                    <img>
-
-                </div>
-               {{-- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner" role="listbox">
-                        <div class="carousel-item active">
-                            <img class="d-block img-fluid" src="images/slider-01.jpg" alt="First slide">
-                            <div class="carousel-caption d-none d-md-block">
-                                <div class="banner-text">
-                                    <h2>This is Heaven</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+                        <div class=" container">
+                            <div class="row">
+                                <div class="col-sm">
+                                    <label for="primaryColourSetup">Primary Colour</label>
+                                    <button id="primaryColourSetup" class="form-control" value="rgb(255, 128, 0)">
+                                    </button>
+                                </div>
+                                <div class="col-sm">
+                                    <label for="secondaryColourSetup">Secondary Colour</label>
+                                    <button id="secondaryColourSetup" class="form-control" value="rgb(255, 128, 0)">
+                                    </button>
+                                </div>
+                                <div class="col-sm">
+                                    <label for="textColourSetup">Text Colour</label>
+                                    <button id="textColourSetup" class="form-control" value="rgb(255, 128, 0)">
+                                    </button>
                                 </div>
                             </div>
                         </div>
-                        <div class="carousel-item">
-                            <img class="d-block img-fluid" src="images/slider-02.jpg" alt="First slide">
-                            <div class="carousel-caption d-none d-md-block">
-                                <div class="banner-text">
-                                    <h2>This is Heaven</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block img-fluid" src="images/slider-03.jpg" alt="First slide">
-                            <div class="carousel-caption d-none d-md-block">
-                                <div class="banner-text">
-                                    <h2>This is Heaven</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>--}}
+                        <br>
+                        <label for="fontPickerSetup">Font Select</label><br>
+                        <input id="fontPickerSetup" class="form-control" type="text">
+
+                    </fieldset>
+
+                    <h3>Login Method</h3>
+                    <fieldset class="form-input">
+                        <h4>Setup Login</h4>
+
+                        <label for="titleSetup">Change The Title</label>
+                        <input id="titleSetup" name="titleSetup" type="text" class="form-control ">
+                        <label for="descSetup">Change The Text</label>
+                        <input id="descSetup" name="desc" type="textarea" class="form-control">
+                        <label for="email">Email *</label>
+                        <input id="email" name="email" type="text" class="form-control email">
+                        <label for="address">Address</label>
+                        <input id="address" name="address" type="text" class="form-control">
+                        <label for="age">Age (The warning step will show up if age is less than 18) *</label>
+                        <input id="age" name="age" type="text" class="form-control number">
+                        <p>(*) Mandatory</p>
+                    </fieldset>
+
+                    <h3>Warning</h3>
+                    <fieldset class="form-input">
+                        <h4>You are to young</h4>
+
+                        <p>Please go away ;-)</p>
+                    </fieldset>
+
+                    <h3>Finish</h3>
+                    <fieldset class="form-input">
+                        <h4>Terms and Conditions</h4>
+
+                        <input id="acceptTerms-2" name="acceptTerms" type="checkbox" class="required"> <label
+                            for="acceptTerms-2">I agree with the Terms and Conditions.</label>
+                    </fieldset>
+                </form>
             </div>
-		</div>
-		<div class="row">
-			<div class="col-lg-12">
-				<p class="copyright text-center"> &copy; 1996-2020 <a href="http://globalxtreme.net">GlobalXtreme</a>
-                    - Commited to better quality
-				</p>
-			</div>
-		</div>
-	</div>
+        </div>
+        <div class="col-lg-7 banner-sec">
+            <div class="card" style="height: 940px; background-image: url({{asset("images/bg_white.jpg")}})"
+                 id="bgImage">
+                <div class="card-body primary-colour"
+                     style="width: 480px;display: block; margin: 2% auto 2% auto;border-radius: 5px;background-color: black;">
+                    <img src={{asset("images/gx_logo_white.png")}} class="centered" id="logo" src="" style="max-width: 250px; max-height: 60px; display: block; margin-left: auto;
+                margin-right: auto; margin-top: 5%">
+                    <p class="text-colour-title" id="title"
+                       style="text-align:center; margin-top: 5%; font-weight: bold; font-size: 25px;color: white">Custom
+                        Title</p>
+                    <p class="text-colour-desc" id="desc" style="text-align:center; margin-top: 2%;color: white">Custom
+                        text for description</p>
+                    <div class="card border primary mb-3 mx-auto" style="width: 60%; height: 500px; border: 1px;
+                 text-align: center; margin-top: 5%;">
+                        this is form
+                    </div>
+                </div>
+            </div>
+            {{-- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                 <ol class="carousel-indicators">
+                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                 </ol>
+                 <div class="carousel-inner" role="listbox">
+                     <div class="carousel-item active">
+                         <img class="d-block img-fluid" src="images/slider-01.jpg" alt="First slide">
+                         <div class="carousel-caption d-none d-md-block">
+                             <div class="banner-text">
+                                 <h2>This is Heaven</h2>
+                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="carousel-item">
+                         <img class="d-block img-fluid" src="images/slider-02.jpg" alt="First slide">
+                         <div class="carousel-caption d-none d-md-block">
+                             <div class="banner-text">
+                                 <h2>This is Heaven</h2>
+                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="carousel-item">
+                         <img class="d-block img-fluid" src="images/slider-03.jpg" alt="First slide">
+                         <div class="carousel-caption d-none d-md-block">
+                             <div class="banner-text">
+                                 <h2>This is Heaven</h2>
+                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>--}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <p class="copyright text-center"> &copy; 1996-2020 <a href="http://globalxtreme.net">GlobalXtreme</a>
+                - Commited to better quality
+            </p>
+        </div>
+    </div>
+</div>
 {{--</div>--}}
 
 <!-- jquery latest version -->
@@ -147,182 +222,272 @@
 <script src="js/jquery.steps.js"></script>
 <!-- particles js -->
 <script src="js/particles.js"></script>
+
+<!-- Color Picker js -->
+<script src="//cdn.rawgit.com/twbs/bootstrap/v4.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/2.5.3/js/bootstrap-colorpicker.js"></script>
+
+<!-- Font Picker js -->
+<script rel="stylesheet" src={{asset("fontpicker/jquery.fontselect.js")}}></script>
+
+
 <script type="text/javascript">
-	$(document).ready(function() {
-		particlesJS("particles-js",
-			{
-			  "particles": {
-				"number": {
-				  "value": 160,
-				  "density": {
-					"enable": true,
-					"value_area": 800
-				  }
-				},
-				"color": {
-				  "value": "#ffffff"
-				},
-				"shape": {
-				  "type": "circle",
-				  "stroke": {
-					"width": 0,
-					"color": "#000000"
-				  },
-				  "polygon": {
-					"nb_sides": 5
-				  },
-				  "image": {
-					"src": "img/github.svg",
-					"width": 100,
-					"height": 100
-				  }
-				},
-				"opacity": {
-				  "value": 1,
-				  "random": true,
-				  "anim": {
-					"enable": true,
-					"speed": 1,
-					"opacity_min": 0,
-					"sync": false
-				  }
-				},
-				"size": {
-				  "value": 3,
-				  "random": true,
-				  "anim": {
-					"enable": false,
-					"speed": 4,
-					"size_min": 0.3,
-					"sync": false
-				  }
-				},
-				"line_linked": {
-				  "enable": false,
-				  "distance": 150,
-				  "color": "#ffffff",
-				  "opacity": 0.4,
-				  "width": 1
-				},
-				"move": {
-				  "enable": true,
-				  "speed": 1,
-				  "direction": "none",
-				  "random": true,
-				  "straight": false,
-				  "out_mode": "out",
-				  "bounce": false,
-				  "attract": {
-					"enable": false,
-					"rotateX": 600,
-					"rotateY": 600
-				  }
-				}
-			  },
-			  "interactivity": {
-				"detect_on": "canvas",
-				"events": {
-				  "onhover": {
-					"enable": true,
-					"mode": "bubble"
-				  },
-				  "onclick": {
-					"enable": true,
-					"mode": "repulse"
-				  },
-				  "resize": true
-				},
-				"modes": {
-				  "grab": {
-					"distance": 400,
-					"line_linked": {
-					  "opacity": 1
-					}
-				  },
-				  "bubble": {
-					"distance": 250,
-					"size": 0,
-					"duration": 2,
-					"opacity": 0,
-					"speed": 3
-				  },
-				  "repulse": {
-					"distance": 400,
-					"duration": 0.4
-				  },
-				  "push": {
-					"particles_nb": 4
-				  },
-				  "remove": {
-					"particles_nb": 2
-				  }
-				}
-			  },
-			  "retina_detect": true
-			}
-    	);
-	});
+    $(document).ready(function () {
+
+        particlesJS("particles-js",
+            {
+                "particles": {
+                    "number": {
+                        "value": 160,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#ffffff"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        },
+                        "polygon": {
+                            "nb_sides": 5
+                        },
+                        "image": {
+                            "src": "img/github.svg",
+                            "width": 100,
+                            "height": 100
+                        }
+                    },
+                    "opacity": {
+                        "value": 1,
+                        "random": true,
+                        "anim": {
+                            "enable": true,
+                            "speed": 1,
+                            "opacity_min": 0,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                        "anim": {
+                            "enable": false,
+                            "speed": 4,
+                            "size_min": 0.3,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": false,
+                        "distance": 150,
+                        "color": "#ffffff",
+                        "opacity": 0.4,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 1,
+                        "direction": "none",
+                        "random": true,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": false,
+                            "rotateX": 600,
+                            "rotateY": 600
+                        }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "bubble"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "repulse"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 400,
+                            "line_linked": {
+                                "opacity": 1
+                            }
+                        },
+                        "bubble": {
+                            "distance": 250,
+                            "size": 0,
+                            "duration": 2,
+                            "opacity": 0,
+                            "speed": 3
+                        },
+                        "repulse": {
+                            "distance": 400,
+                            "duration": 0.4
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        },
+                        "remove": {
+                            "particles_nb": 2
+                        }
+                    }
+                },
+                "retina_detect": true
+            }
+        );
+    });
 </script>
 
 <script>
-	var form = $("#example-advanced-form").show();
+    var form = $("#example-advanced-form").show();
 
-	form.steps({
-		headerTag: "h3",
-		bodyTag: "fieldset",
-		transitionEffect: "slideLeft",
-		onStepChanging: function (event, currentIndex, newIndex)
-		{
-			// Allways allow previous action even if the current form is not valid!
-			if (currentIndex > newIndex)
-			{
-				return true;
-			}
-			// Forbid next action on "Warning" step if the user is to young
-			if (newIndex === 3 && Number($("#age").val()) < 18)
-			{
-				return false;
-			}
-			// Needed in some cases if the user went back (clean up)
-			if (currentIndex < newIndex)
-			{
-				// To remove error styles
-				form.find(".body:eq(" + newIndex + ") label.error").remove();
-				form.find(".body:eq(" + newIndex + ") .error").removeClass("error");
-			}
-			form.validate().settings.ignore = ":disabled,:hidden";
-			return form.valid();
-		},
-		onStepChanged: function (event, currentIndex, priorIndex)
-		{
-			// Used to skip the "Warning" step if the user is old enough.
-			if (currentIndex === 2 && Number($("#age").val()) >= 18)
-			{
-				form.steps("next");
-			}
-			// Used to skip the "Warning" step if the user is old enough and wants to the previous step.
-			if (currentIndex === 2 && priorIndex === 3)
-			{
-				form.steps("previous");
-			}
-		},
-		onFinishing: function (event, currentIndex)
-		{
-			form.validate().settings.ignore = ":disabled";
-			return form.valid();
-		},
-		onFinished: function (event, currentIndex)
-		{
-			alert("Submitted!");
-		}
-	}).validate({
-		errorPlacement: function errorPlacement(error, element) { element.before(error); },
-		rules: {
-			confirm: {
-				equalTo: "#logo"
-			}
-		}
-	});
+    form.steps({
+        headerTag: "h3",
+        bodyTag: "fieldset",
+        transitionEffect: "slideLeft",
+        onStepChanging: function (event, currentIndex, newIndex) {
+            // Allways allow previous action even if the current form is not valid!
+            if (currentIndex > newIndex) {
+                return true;
+            }
+            // Forbid next action on "Warning" step if the user is to young
+            if (newIndex === 3 && Number($("#age").val()) < 18) {
+                return false;
+            }
+            // Needed in some cases if the user went back (clean up)
+            if (currentIndex < newIndex) {
+                // To remove error styles
+                form.find(".body:eq(" + newIndex + ") label.error").remove();
+                form.find(".body:eq(" + newIndex + ") .error").removeClass("error");
+            }
+            form.validate().settings.ignore = ":disabled,:hidden";
+            return form.valid();
+        },
+        onStepChanged: function (event, currentIndex, priorIndex) {
+            // Used to skip the "Warning" step if the user is old enough.
+            if (currentIndex === 2 && Number($("#age").val()) >= 18) {
+                form.steps("next");
+            }
+            // Used to skip the "Warning" step if the user is old enough and wants to the previous step.
+            if (currentIndex === 2 && priorIndex === 3) {
+                form.steps("previous");
+            }
+        },
+        onFinishing: function (event, currentIndex) {
+            form.validate().settings.ignore = ":disabled";
+            return form.valid();
+        },
+        onFinished: function (event, currentIndex) {
+            alert("Submitted!");
+        }
+    });
+    //     .validate({
+    //     errorPlacement: function errorPlacement(error, element) {
+    //         element.before(error);
+    //     },
+    //     rules: {
+    //         backgroundImage: {
+    //             equalTo: "#logo"
+    //         }
+    //     }
+    // });
+
+</script>
+
+<script>
+    $(function () {
+        // Basic instantiation:
+        $('#primaryColourSetup').colorpicker();
+
+
+        // Example using an event, to change the color of the .jumbotron background:
+        $('#primaryColourSetup').colorpicker().on('changeColor', function () {
+            event.preventDefault();
+            $('.primary-colour').css('background-color', $(this).colorpicker('getValue', '#ffffff'));
+        });
+
+        $('#textColourSetup').colorpicker();
+
+        // Example using an event, to change the color of the .jumbotron background:
+        $('#textColourSetup').colorpicker().on('changeColor', function () {
+            $('.text-colour-title').css('color', $(this).colorpicker('getValue', '#ffffff'));
+            $('.text-colour-desc').css('color', $(this).colorpicker('getValue', '#ffffff'));
+
+        });
+
+    });
+
+    $(function () {
+        $('#fontPickerSetup').fontselect().change(function () {
+
+            // replace + signs with spaces for css
+            var font = $(this).val().replace(/\+/g, ' ');
+
+            // split font into family and weight
+            font = font.split(':');
+
+            // set family on paragraphs
+            $('.text-colour-title').css('font-family', font[0]);
+            $('.text-colour-desc').css('font-family', font[0]);
+        });
+    });
+
+    $('#bgImageSetup').on('change', function (evt) {
+        var file = evt.target.files[0];
+        if (file.type.match('image.*')) {
+            var reader = new FileReader();
+            reader.onload = (function (file) {
+                return function (e) {
+                    $('#bgImage').css({
+                        'background-image': 'url(' + e.target.result + ')'
+                    });
+                }
+            })(file);
+        }
+
+        reader.readAsDataURL(file);
+    })
+
+    $.event.special.inputchange = {
+        setup: function () {
+            var self = this, val;
+            $.data(this, 'timer', window.setInterval(function () {
+                val = self.value;
+                if ($.data(self, 'cache') != val) {
+                    $.data(self, 'cache', val);
+                    $(self).trigger('inputchange');
+                }
+            }, 20));
+        },
+        teardown: function () {
+            window.clearInterval($.data(this, 'timer'));
+        },
+        add: function () {
+            $.data(this, 'cache', this.value);
+        }
+    };
+
+    $('#titleSetup').on('inputchange', function () {
+        $('#title').text(this.value);
+    });
+
+    $('#descSetup').on('inputchange', function () {
+        $('#desc').text(this.value);
+    });
+
+
 </script>
 
 </body>

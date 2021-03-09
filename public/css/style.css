@@ -11,7 +11,6 @@ body{
 	margin: 0px;
 	padding: 0px;
 	font-family: 'Poppins', sans-serif;
-	background-color: black;
 	background-size: cover;
 	background-attachment: fixed;
 }
@@ -134,7 +133,6 @@ html, body{
 	font-size: 28px;
 	text-transform: capitalize;
 	margin-bottom: 30px;
-	color: #ffffff;
 	font-weight: 500;
 }
 #particles-js {
@@ -160,14 +158,12 @@ html, body{
 	width: 6px;
 	height: 6px;
 	opacity: .5;
-	border-radius: 3px;
 	background-color: #bbb4b4;
 	margin: 0px 15px;
 }
 .banner-sec .carousel-indicators li.active{
 	width: 12px;
 	height: 13px;
-	border-radius: 6px;
 	background-color: #ff060a;
 	position: relative;
 	top: -4px;
@@ -199,7 +195,7 @@ html, body{
 	text-align:center;
 	}
 .login-sec .copy-text i{
-	color:#FEB58A;
+	color:#F9C900;
 	}
 .login-sec .copy-text a{
 	color:#E36262;
@@ -208,22 +204,21 @@ html, body{
 	margin-bottom:30px;
 	font-weight: 600;
 	font-size: 24px;
-	color: #DE6262;
+	color: #000000;
 	}
 .login-sec h2:after{
 	content:" ";
 	width:100px;
 	height:5px;
-	background:#FEB58A;
+	background:#F9C900;
 	display:block;
 	margin-top:5px;
-	border-radius:3px;
 	margin-left:auto;
 	margin-right:auto;
 	}
 .btn-login{
-	background: #DE6262;
-	color:#fff;
+	background: #000000;
+	color:#F9C900;
 	font-weight:600;
 	}
 .banner-text{
@@ -244,7 +239,6 @@ html, body{
 	background:#FFFFFF;
 	display:block;
 	margin-top:20px;
-	border-radius:3px;
 	}
 .banner-text p{
 	color:#ffffff;
@@ -253,7 +247,7 @@ html, body{
 	}
 .form-input h4{
 	font-size: 18px;
-	font-weight: 400;
+	font-weight: bold;
 }
 .form-input .form-control{
 	border-color: #fff;
@@ -322,7 +316,6 @@ html, body{
     text-decoration:none;
     -webkit-border-radius:5px;
     -moz-border-radius:5px;
-    border-radius:5px
 }
 .wizard>.steps .disabled a,.wizard>.steps .disabled a:hover,.wizard>.steps .disabled a:active{
     background:#eee;
@@ -330,29 +323,28 @@ html, body{
     cursor:default
 }
 .wizard>.steps .current a,.wizard>.steps .current a:hover,.wizard>.steps .current a:active{
-    background:#240661;
-    color:#fff;
+    background:#F9C900;
+    color:#000000;
     cursor:default
 }
 .wizard>.steps .done a,.wizard>.steps .done a:hover,.wizard>.steps .done a:active{
-    background:#9dc8e2;
-    color:#fff
+    background:#FFF0B3;
+    color:#000000
 }
 .wizard>.steps .error a,.wizard>.steps .error a:hover,.wizard>.steps .error a:active{
     background:#ff3111;
-    color:#fff
+    color:#000000
 }
 .wizard>.content{
     background:#ffffff;
     display:block;
     margin:.5em;
-    min-height: 440px;
+    min-height: 640px;
     overflow:hidden;
     position:relative;
     width:auto;
     -webkit-border-radius:5px;
     -moz-border-radius:5px;
-    border-radius:5px
 }
 .wizard.vertical>.content{
     display:inline;
@@ -394,7 +386,7 @@ html, body{
     display:inline-block;
     margin-bottom: 10px;
 	font-size: 13px;
-	font-weight: 400;
+	font-weight: bold;
 }
 .wizard>.content>.body label.error{
     color:#8a1f11;
@@ -424,14 +416,13 @@ html, body{
     margin:0 0 0 1em
 }
 .wizard>.actions a,.wizard>.actions a:hover,.wizard>.actions a:active{
-    background:#240661;
-    color:#fff;
+    background:#F9C900;
+    color:#000000;
     display:block;
     padding:.5em 1em;
     text-decoration:none;
     -webkit-border-radius:5px;
     -moz-border-radius:5px;
-    border-radius:5px
 }
 .wizard>.actions .disabled a,.wizard>.actions .disabled a:hover,.wizard>.actions .disabled a:active{
     background:#eee;
@@ -469,7 +460,7 @@ html, body{
     padding:0
 }
 .tabcontrol>.steps>ul>li.current{
-    background:#fff;
+    background:#000000;
     border:1px solid #bbb;
     border-bottom:0 none;
     padding:0 0 1px 0;
@@ -542,7 +533,6 @@ html, body{
 .copyright.text-center{
 	margin-top: 30px;
 	margin-bottom: 0px;
-	color: #ffffff;
 }
 .copyright.text-center a{
 	color: #eda503;
