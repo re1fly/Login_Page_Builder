@@ -13,4 +13,9 @@ class WifiSetup extends Controller
     {
         return view('wifi_setup.index');
     }
+
+    public function form(Request $request)
+    {
+        return view('wifi_setup.form');
+    }
 }

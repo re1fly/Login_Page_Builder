@@ -20,6 +20,7 @@ Route::get('/design', function () {
 
 //wifi-setup
 Route::get('/wifi-setup',[WifiSetup::class, 'index']);
+Route::get('/form',[WifiSetup::class, 'form']);
 
 
 Route::get('/', function () {

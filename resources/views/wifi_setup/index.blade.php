@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +11,7 @@
     <meta name="description" content="Wizard Form with Validation - Responsive">
     <link rel="shortcut icon" href="images/favicon.ico">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+{{--    <link rel="stylesheet" href="css/bootstrap.min.css">--}}
     <!-- Fontawesome CSS -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css">
     <!-- Fonts and icons -->
@@ -30,6 +31,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href={{asset("fontpicker/jquery.fontselect.css")}}>
+
+{{--    bootstrap--}}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
 
 </head>
@@ -111,7 +116,7 @@
 
                     </fieldset>
 
-                    <h3>Login Method</h3>
+                    <h3>Login</h3>
                     <fieldset class="form-input">
                         <h4>Setup Login</h4>
 
@@ -119,10 +124,28 @@
                         <input id="titleSetup" name="titleSetup" type="text" class="form-control ">
                         <label for="descSetup">Change The Text</label>
                         <input id="descSetup" name="desc" type="textarea" class="form-control">
-                        <label for="email">Email *</label>
-                        <input id="email" name="email" type="text" class="form-control email">
-                        <label for="address">Address</label>
-                        <input id="address" name="address" type="text" class="form-control">
+                        <br>
+                        <button type="button" class="btn" data-toggle="modal" data-target="#exampleModalCenter"
+                                style="background-color: black; color: #F9C900">
+                            <i class="fab fa-wpforms"></i> Setup Your Form on Login Page
+                        </button>
+
+                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        @include('wifi_setup.form')
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br><br>
+
                         <label for="age">Age (The warning step will show up if age is less than 18) *</label>
                         <input id="age" name="age" type="text" class="form-control number">
                         <p>(*) Mandatory</p>
@@ -230,125 +253,6 @@
 
 <!-- Font Picker js -->
 <script rel="stylesheet" src={{asset("fontpicker/jquery.fontselect.js")}}></script>
-
-
-<script type="text/javascript">
-    $(document).ready(function () {
-
-        particlesJS("particles-js",
-            {
-                "particles": {
-                    "number": {
-                        "value": 160,
-                        "density": {
-                            "enable": true,
-                            "value_area": 800
-                        }
-                    },
-                    "color": {
-                        "value": "#ffffff"
-                    },
-                    "shape": {
-                        "type": "circle",
-                        "stroke": {
-                            "width": 0,
-                            "color": "#000000"
-                        },
-                        "polygon": {
-                            "nb_sides": 5
-                        },
-                        "image": {
-                            "src": "img/github.svg",
-                            "width": 100,
-                            "height": 100
-                        }
-                    },
-                    "opacity": {
-                        "value": 1,
-                        "random": true,
-                        "anim": {
-                            "enable": true,
-                            "speed": 1,
-                            "opacity_min": 0,
-                            "sync": false
-                        }
-                    },
-                    "size": {
-                        "value": 3,
-                        "random": true,
-                        "anim": {
-                            "enable": false,
-                            "speed": 4,
-                            "size_min": 0.3,
-                            "sync": false
-                        }
-                    },
-                    "line_linked": {
-                        "enable": false,
-                        "distance": 150,
-                        "color": "#ffffff",
-                        "opacity": 0.4,
-                        "width": 1
-                    },
-                    "move": {
-                        "enable": true,
-                        "speed": 1,
-                        "direction": "none",
-                        "random": true,
-                        "straight": false,
-                        "out_mode": "out",
-                        "bounce": false,
-                        "attract": {
-                            "enable": false,
-                            "rotateX": 600,
-                            "rotateY": 600
-                        }
-                    }
-                },
-                "interactivity": {
-                    "detect_on": "canvas",
-                    "events": {
-                        "onhover": {
-                            "enable": true,
-                            "mode": "bubble"
-                        },
-                        "onclick": {
-                            "enable": true,
-                            "mode": "repulse"
-                        },
-                        "resize": true
-                    },
-                    "modes": {
-                        "grab": {
-                            "distance": 400,
-                            "line_linked": {
-                                "opacity": 1
-                            }
-                        },
-                        "bubble": {
-                            "distance": 250,
-                            "size": 0,
-                            "duration": 2,
-                            "opacity": 0,
-                            "speed": 3
-                        },
-                        "repulse": {
-                            "distance": 400,
-                            "duration": 0.4
-                        },
-                        "push": {
-                            "particles_nb": 4
-                        },
-                        "remove": {
-                            "particles_nb": 2
-                        }
-                    }
-                },
-                "retina_detect": true
-            }
-        );
-    });
-</script>
 
 <script>
     var form = $("#example-advanced-form").show();
