@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +11,7 @@
     <link rel="shortcut icon" href="images/favicon.ico">
     <!-- Bootstrap CSS -->
 {{--    <link rel="stylesheet" href="css/bootstrap.min.css">--}}
-    <!-- Fontawesome CSS -->
+<!-- Fontawesome CSS -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css">
     <!-- Fonts and icons -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700" rel="stylesheet">
@@ -32,7 +31,7 @@
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href={{asset("fontpicker/jquery.fontselect.css")}}>
 
-{{--    bootstrap--}}
+    {{--    bootstrap--}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
@@ -95,7 +94,7 @@
                             <div class="row">
                                 <div class="col-sm">
                                     <label for="primaryColourSetup">Primary Colour</label>
-                                    <button id="primaryColourSetup" class="form-control" value="rgb(255, 128, 0)">
+                                    <button id="primaryColourSetup" class="form-control" value="rgb(255, 128, 0)" style="background-color: black">
                                     </button>
                                 </div>
                                 <div class="col-sm">
@@ -105,7 +104,7 @@
                                 </div>
                                 <div class="col-sm">
                                     <label for="textColourSetup">Text Colour</label>
-                                    <button id="textColourSetup" class="form-control" value="rgb(255, 128, 0)">
+                                    <button id="textColourSetup" class="form-control" value="rgb(255, 128, 0)" style="background-color: white">
                                     </button>
                                 </div>
                             </div>
@@ -130,17 +129,15 @@
                             <i class="fab fa-wpforms"></i> Setup Your Form on Login Page
                         </button>
 
-                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
                                 <div class="modal-content">
                                     <div class="modal-body">
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                         @include('wifi_setup.form')
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Save changes</button>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -180,10 +177,16 @@
                         Title</p>
                     <p class="text-colour-desc" id="desc" style="text-align:center; margin-top: 2%;color: white">Custom
                         text for description</p>
-                    <div class="card border primary mb-3 mx-auto" style="width: 60%; height: 500px; border: 1px;
+                    <div class="card border primary mb-3 mx-auto" style="width: 60%; min-height: 300px; border: 1px;
                  text-align: center; margin-top: 5%;">
-                        this is form
+                        <div class="container">
+                            <div class="formRendered"></div>
+                        </div>
                     </div>
+                    <button type="button" class="btn btn-floating secondary-colour" style="display: block;position: absolute ;margin: -40px 0 0 200px;height: 45px;width: 45px;border-radius: 50%;border: 3px solid white;background-color: black;color: white">
+                        <i class="fas fa-sign-in-alt"></i>
+                    </button>
+
                 </div>
             </div>
             {{-- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -254,6 +257,7 @@
 <!-- Font Picker js -->
 <script rel="stylesheet" src={{asset("fontpicker/jquery.fontselect.js")}}></script>
 
+
 <script>
     var form = $("#example-advanced-form").show();
 
@@ -313,21 +317,25 @@
 <script>
     $(function () {
         // Basic instantiation:
-        $('#primaryColourSetup').colorpicker();
-
 
         // Example using an event, to change the color of the .jumbotron background:
         $('#primaryColourSetup').colorpicker().on('changeColor', function () {
             event.preventDefault();
             $('.primary-colour').css('background-color', $(this).colorpicker('getValue', '#ffffff'));
+            $('#primaryColourSetup').css('background-color', $(this).colorpicker('getValue', '#ffffff'));
         });
 
-        $('#textColourSetup').colorpicker();
+        $('#secondaryColourSetup').colorpicker().on('changeColor', function () {
+            event.preventDefault();
+            $('.secondary-colour').css('background-color', $(this).colorpicker('getValue', '#ffffff'));
+            $('#secondaryColourSetup').css('background-color', $(this).colorpicker('getValue', '#ffffff'));
+        });
 
         // Example using an event, to change the color of the .jumbotron background:
         $('#textColourSetup').colorpicker().on('changeColor', function () {
             $('.text-colour-title').css('color', $(this).colorpicker('getValue', '#ffffff'));
             $('.text-colour-desc').css('color', $(this).colorpicker('getValue', '#ffffff'));
+            $('#textColourSetup').css('background-color', $(this).colorpicker('getValue', '#ffffff'));
 
         });
 

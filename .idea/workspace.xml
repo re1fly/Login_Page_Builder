@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1e9ffe52-ca43-4dc9-8386-7a563a35150f" name="Default" comment="new changes">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="1e9ffe52-ca43-4dc9-8386-7a563a35150f" name="Default" comment="include form setup">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WifiSetup.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WifiSetup.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/wifi_setup/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/wifi_setup/form.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/wifi_setup/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/wifi_setup/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -337,7 +333,8 @@
       <workItem from="1615335267207" duration="62000" />
       <workItem from="1615335345033" duration="71000" />
       <workItem from="1615335430523" duration="33000" />
-      <workItem from="1615335646877" duration="18330000" />
+      <workItem from="1615335646877" duration="23631000" />
+      <workItem from="1615508120328" duration="25770000" />
     </task>
     <task id="LOCAL-00001" summary="post api with axios">
       <created>1614043274906</created>
@@ -388,7 +385,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615281041527</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="include form setup">
+      <created>1615361513361</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1615361513361</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -429,7 +433,8 @@
     <MESSAGE value="get json design" />
     <MESSAGE value="sending form" />
     <MESSAGE value="new changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="new changes" />
+    <MESSAGE value="include form setup" />
+    <option name="LAST_COMMIT_MESSAGE" value="include form setup" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
