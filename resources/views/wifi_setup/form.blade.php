@@ -33,6 +33,11 @@
             disabledSubtypes: {
                 text: ['color', 'tel'],
             },
+            disabledFieldButtons: {
+              select: ['edit'],
+              number: ['edit'],
+              date: ['edit'],
+            },
             controlOrder: [
                     'text',
             ],

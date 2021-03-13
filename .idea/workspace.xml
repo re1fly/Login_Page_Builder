@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1e9ffe52-ca43-4dc9-8386-7a563a35150f" name="Default" comment="include form setup">
+    <list default="true" id="1e9ffe52-ca43-4dc9-8386-7a563a35150f" name="Default" comment="fixing feature form and color picker">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/wifi_setup/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/wifi_setup/form.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/wifi_setup/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/wifi_setup/index.blade.php" afterDir="false" />
     </list>
@@ -334,7 +335,8 @@
       <workItem from="1615335345033" duration="71000" />
       <workItem from="1615335430523" duration="33000" />
       <workItem from="1615335646877" duration="23631000" />
-      <workItem from="1615508120328" duration="25770000" />
+      <workItem from="1615508120328" duration="26632000" />
+      <workItem from="1615594011080" duration="23102000" />
     </task>
     <task id="LOCAL-00001" summary="post api with axios">
       <created>1614043274906</created>
@@ -392,7 +394,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615361513361</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="fixing feature form and color picker">
+      <created>1615540593183</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1615540593184</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -434,7 +443,8 @@
     <MESSAGE value="sending form" />
     <MESSAGE value="new changes" />
     <MESSAGE value="include form setup" />
-    <option name="LAST_COMMIT_MESSAGE" value="include form setup" />
+    <MESSAGE value="fixing feature form and color picker" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixing feature form and color picker" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

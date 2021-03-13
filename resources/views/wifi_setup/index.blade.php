@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css">
     <!-- Fonts and icons -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/d3ff108a08.js" crossorigin="anonymous"></script>
     <!-- Reset CSS -->
     <link rel="stylesheet" href="css/reset.css">
     <!-- Style CSS -->
@@ -81,11 +82,12 @@
                     <fieldset class="form-input">
                         <h4>Setup Your Branding</h4>
                         <label for="companyName">Your Company Name</label>
-                        <input id="companyName" name="companyName" type="text" class="form-control">
+                        <input id="companyName" name="companyName" type="text" class="form-control" onkeyup='saveValue(this);'>
 
                         <label for="logo">Add A Logo *</label>
-                        <input class="form-control" name="logoSetup" type="file" accept="image/*"
-                               onchange="document.getElementById('logo').src = window.URL.createObjectURL(this.files[0])">
+                        <input class="form-control" id="logoSetup" name="logoSetup" type="file" accept="image/*"
+                               onchange="document.getElementById('logo').src = window.URL.createObjectURL(this.files[0])"
+                               onkeyup='saveValue(this);'>
 
                         <label for="bgImageSetup">Add a Background Image *</label>
                         <input id="bgImageSetup" name="bgImageSetup" type="file" class="form-control">
@@ -94,7 +96,8 @@
                             <div class="row">
                                 <div class="col-sm">
                                     <label for="primaryColourSetup">Primary Colour</label>
-                                    <button id="primaryColourSetup" class="form-control" value="rgb(255, 128, 0)" style="background-color: black">
+                                    <button id="primaryColourSetup" class="form-control" value="rgb(255, 128, 0)"
+                                            style="background-color: black">
                                     </button>
                                 </div>
                                 <div class="col-sm">
@@ -104,7 +107,8 @@
                                 </div>
                                 <div class="col-sm">
                                     <label for="textColourSetup">Text Colour</label>
-                                    <button id="textColourSetup" class="form-control" value="rgb(255, 128, 0)" style="background-color: white">
+                                    <button id="textColourSetup" class="form-control" value="rgb(255, 128, 0)"
+                                            style="background-color: #ABABAB">
                                     </button>
                                 </div>
                             </div>
@@ -120,9 +124,31 @@
                         <h4>Setup Login</h4>
 
                         <label for="titleSetup">Change The Title</label>
-                        <input id="titleSetup" name="titleSetup" type="text" class="form-control ">
+                        <input id="titleSetup" name="titleSetup" type="text" class="form-control" onkeyup='saveValue(this);'>
                         <label for="descSetup">Change The Text</label>
-                        <input id="descSetup" name="desc" type="textarea" class="form-control">
+                        <input id="descSetup" name="desc" type="textarea" class="form-control" onkeyup='saveValue(this);'>
+
+                        <label for="LoginMethods">Setup Login Methods</label>
+                        <div class=" container">
+                            <div class="row">
+                                <div class="col-sm">
+                                    <button id="facebookMethod" class="form-control">
+                                        <i class="fa fa-facebook fa-2x" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                                <div class="col-sm">
+                                    <button id="twitterMethod" class="form-control">
+                                        <i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                                <div class="col-sm">
+                                    <button id="googleMethod" class="form-control">
+                                        <i class="fa fa-google fa-2x" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
                         <br>
                         <button type="button" class="btn" data-toggle="modal" data-target="#exampleModalCenter"
                                 style="background-color: black; color: #F9C900">
@@ -148,11 +174,44 @@
                         <p>(*) Mandatory</p>
                     </fieldset>
 
-                    <h3>Warning</h3>
+                    <h3>Redirect</h3>
                     <fieldset class="form-input">
-                        <h4>You are to young</h4>
+                        <h4>Setup Redirect After Login</h4>
+                        <label for="RedirectMethods">Select Redirect Methods</label>
+                        <div class=" container">
+                            <div class="row">
+                                <div class="col-sm">
+                                    <button id="textMethod" class="form-control">
+                                        <i class="fa fa-file-text-o fa-2x" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                                <div class="col-sm">
+                                    <button id="urlMethod" class="form-control">
+                                        <i class="fa fa-link fa-2x" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="redirectTextPage" style="margin-top: 50px">
+                            <label for="titleRedirect">Change The Title</label>
+                            <input id="titleRedirect" name="titleRedirect" type="text" class="form-control" onkeyup='saveValue(this);'>
 
-                        <p>Please go away ;-)</p>
+                            <label for="textRedirect">Change The Text</label>
+                            <input id="textRedirect" name="textRedirect" type="text" class="form-control" onkeyup='saveValue(this);'>
+
+                            <label for="linkRedirect">Add A Button Link</label>
+                            <input id="linkRedirect" name="linkRedirect" type="text" class="form-control" onkeyup='saveValue(this);'>
+
+                            <label for="buttonTextRedirect">Change Button Text</label>
+                            <input id="buttonTextRedirect" name="buttonTextRedirect" type="text" class="form-control" onkeyup='saveValue(this);'>
+                        </div>
+
+                        <div id="redirectUrlPage" style="margin-top: 50px; display:none;">
+                            <label for="urlRedirect">Enter Custom Url </label>
+                            <input id="urlRedirect" name="urlRedirect" type="text" class="form-control" onkeyup='saveValue(this);'>
+
+                        </div>
+
                     </fieldset>
 
                     <h3>Finish</h3>
@@ -173,19 +232,42 @@
                     <img src={{asset("images/gx_logo_white.png")}} class="centered" id="logo" src="" style="max-width: 250px; max-height: 60px; display: block; margin-left: auto;
                 margin-right: auto; margin-top: 5%">
                     <p class="text-colour-title" id="title"
-                       style="text-align:center; margin-top: 5%; font-weight: bold; font-size: 25px;color: white">Custom
+                       style="text-align:center; margin-top: 5%; font-weight: bold; font-size: 25px;color: #ABABAB">
+                        Custom
                         Title</p>
-                    <p class="text-colour-desc" id="desc" style="text-align:center; margin-top: 2%;color: white">Custom
+                    <p class="text-colour-desc" id="desc" style="text-align:center; margin-top: 2%;color: #ABABAB">
+                        Custom
                         text for description</p>
-                    <div class="card border primary mb-3 mx-auto" style="width: 60%; min-height: 300px; border: 1px;
+                    <div class="card border primary mb-3 mx-auto" style="width: 80%; min-height: 300px; border: 1px;
                  text-align: center; margin-top: 5%;">
                         <div class="container">
-                            <div class="formRendered"></div>
+                            <div class="formRendered" style="margin-bottom: 40px"></div>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-floating secondary-colour" style="display: block;position: absolute ;margin: -40px 0 0 200px;height: 45px;width: 45px;border-radius: 50%;border: 3px solid white;background-color: black;color: white">
+                    {{--                    <div class="row justify-content-center">--}}
+                    {{--                        <!-- Twitter Connect -->--}}
+                    {{--                        <div class="col-7 col-sm-4 px-1 pb-1"> <a href="#" class="btn btn-block btn-social btn-twitter"> <span class="fa fa-twitter"></span> Twitter </a> </div> <!-- Facebook Connect -->--}}
+                    {{--                        <div class="col-7 col-sm-4 px-1 pb-1"> <a href="#" class="btn btn-block btn-social btn-facebook"> <span class="fa fa-facebook"></span> Facebook </a> </div> <!-- Google Connect -->--}}
+                    {{--                        <div class="col-7 col-sm-4 px-1 pb-1"> <a href="#" class="btn btn-block btn-social btn-google"> <span class="fa fa-google-plus"></span> Google+ </a> </div>--}}
+                    {{--                    </div>--}}
+                    <button type="button" class="btn btn-floating secondary-colour" style="display: block;
+                    position: absolute ;margin: -40px 0 0 200px;height: 45px;width: 45px;
+                    border-radius: 50%;border: 3px solid white;background-color: black;color: white">
                         <i class="fas fa-sign-in-alt"></i>
                     </button>
+
+                    <div class="socMed">
+                        <a href="#" id="btnFacebook" class="fb btnSocmed">
+                            <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+                        </a>
+                        <a href="#" id="btnTwitter" class="twitter btnSocmed">
+                            <i class="fa fa-twitter fa-fw"></i> Login with Twitter
+                        </a>
+                        <a href="#" id="btnGoogle" class="google btnSocmed"><i class="fa fa-google fa-fw">
+                            </i> Login with Google
+                        </a>
+                    </div>
+
 
                 </div>
             </div>
@@ -356,6 +438,7 @@
         });
     });
 
+
     $('#bgImageSetup').on('change', function (evt) {
         var file = evt.target.files[0];
         if (file.type.match('image.*')) {
@@ -398,6 +481,49 @@
     $('#descSetup').on('inputchange', function () {
         $('#desc').text(this.value);
     });
+
+    //toggle social media button
+    $(document).ready(function () {
+
+        $("#facebookMethod").click(function () {
+            $("#btnFacebook").toggle();
+
+        });
+        $("#googleMethod").click(function () {
+            $("#btnGoogle").toggle();
+        });
+        $("#twitterMethod").click(function () {
+            $("#btnTwitter").toggle();
+        });
+
+        //custom redirect
+        $('#textMethod').click(function(){
+            console.log('cklik');
+            $('#redirectTextPage').slideToggle('slow');
+        });
+        $("#urlMethod").click(function() {
+            $("#redirectUrlPage").toggle('slow');
+        });
+    });
+
+    //save value in localstorage
+    document.getElementById("companyName").value = getSavedValue("companyName");
+    document.getElementById("titleSetup").value = getSavedValue("titleSetup");
+    document.getElementById("descSetup").value = getSavedValue("descSetup");
+    document.getElementById("logoSetup").value = getSavedValue("logoSetup");
+
+    function saveValue(e){
+        var id = e.id;  // get the sender's id to save it .
+        var val = e.value; // get the value.
+        localStorage.setItem(id, val);// Every time user writing something, the localStorage's value will override .
+    }
+
+    function getSavedValue  (valueInput){
+        if (!localStorage.getItem(valueInput)) {
+            return "";// You can change this to your defualt value.
+        }
+        return localStorage.getItem(valueInput);
+    }
 
 
 </script>
