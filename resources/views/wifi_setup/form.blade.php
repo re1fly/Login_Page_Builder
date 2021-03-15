@@ -34,35 +34,12 @@
                 text: ['color', 'tel'],
             },
             disabledFieldButtons: {
-              select: ['edit'],
-              number: ['edit'],
-              date: ['edit'],
+                select: ['edit'],
+                number: ['edit'],
+                date: ['edit'],
             },
             controlOrder: [
-                    'text',
-            ],
-            defaultFields: [
-
-                {
-                    label: 'Full Name',
-                    type: "text",
-                    name: "fullName",
-                    required: true,
-                    placeholder: "Enter Your Full Name",
-                    subtype: "text",
-                    icon: "👨‍🦲‍"
-                },
-                {
-                    label: 'Email',
-                    type: "text",
-                    name: "email",
-                    required: true,
-                    placeholder: "Enter Your Valid Email",
-                    description: "This form is fillable for your email address",
-                    subtype: "email",
-                    icon: "📧"
-                },
-
+                'text',
             ],
             disableFields: [
                 'autocomplete',
@@ -89,7 +66,7 @@
                 text: ['number']
             },
             //custom fields
-            fields : [
+            fields: [
                 {
                     label: 'Email',
                     type: "text",
@@ -111,17 +88,17 @@
                 },
                 {
                     label: 'Phone Number',
-                    type: "text",
+                    type: "number",
                     name: "phoneNumber",
                     required: true,
                     placeholder: "Enter Your Number Phone",
-                    subtype: "number",
                     icon: "📱"
                 },
                 {
                     label: 'Age',
                     type: "number",
                     name: "age",
+                    className: "form-control",
                     required: true,
                     placeholder: "Enter Your Age",
                     icon: "🧍"
@@ -139,7 +116,7 @@
                     name: "gender",
                     required: true,
                     placeholder: "Gender",
-                    values: [{"label":"Male","value":"1"},{"label":"Female","value":"2"}],
+                    values: [{"label": "Male", "value": "1"}, {"label": "Female", "value": "2"}],
                     icon: "♂♀"
                 },
                 {
@@ -397,7 +374,6 @@
                 },
             ],
         };
-
 
 
         //init

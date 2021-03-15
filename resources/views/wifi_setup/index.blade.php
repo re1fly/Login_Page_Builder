@@ -39,41 +39,12 @@
 
 </head>
 <body>
-
-<nav class="navbar navbar-expand-lg navbar-dark static-top" style="background: black">
-    <div class="container">
-        <a class="navbar-brand" href="http://globalxtreme.net">
-            <img src={{asset("images/gx_logo_white.png")}} alt="logoGx" style="width:250px">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+@include('wifi_setup.header')
 
 <div class=" wizard-main">
     {{--	<div class="container">--}}
     <div class="row">
-        <div class="col-lg-5 login-sec">
+        <div class="col-lg-4 login-sec">
             <div class="login-sec-bg">
                 <h2 class="text-center">Make Your Own Login Page</h2>
                 <form id="example-advanced-form" action="#" type="POST" enctype="multipart/form-data"
@@ -126,7 +97,7 @@
                         <label for="titleSetup">Change The Title</label>
                         <input id="titleSetup" name="titleSetup" type="text" class="form-control" onkeyup='saveValue(this);'>
                         <label for="descSetup">Change The Text</label>
-                        <input id="descSetup" name="desc" type="textarea" class="form-control" onkeyup='saveValue(this);'>
+                        <input id="descSetup" name="desc" type="text" class="form-control" onkeyup='saveValue(this);'>
 
                         <label for="LoginMethods">Setup Login Methods</label>
                         <div class=" container">
@@ -146,10 +117,16 @@
                                         <i class="fa fa-google fa-2x" aria-hidden="true"></i>
                                     </button>
                                 </div>
+                                <div class="col-sm">
+                                    <button id="formMethod" class="form-control">
+                                        <i class="fab fa-wpforms fa-2x" aria-hidden="true"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
 
                         <br>
+                        <label for="setupForm">Setup Login Methods</label><br>
                         <button type="button" class="btn" data-toggle="modal" data-target="#exampleModalCenter"
                                 style="background-color: black; color: #F9C900">
                             <i class="fab fa-wpforms"></i> Setup Your Form on Login Page
@@ -169,9 +146,9 @@
                         </div>
                         <br><br>
 
-                        <label for="age">Age (The warning step will show up if age is less than 18) *</label>
+                        {{--<label for="age">Age (The warning step will show up if age is less than 18) *</label>
                         <input id="age" name="age" type="text" class="form-control number">
-                        <p>(*) Mandatory</p>
+                        <p>(*) Mandatory</p>--}}
                     </fieldset>
 
                     <h3>Redirect</h3>
@@ -183,6 +160,7 @@
                                 <div class="col-sm">
                                     <button id="textMethod" class="form-control">
                                         <i class="fa fa-file-text-o fa-2x" aria-hidden="true"></i>
+
                                     </button>
                                 </div>
                                 <div class="col-sm">
@@ -193,22 +171,22 @@
                             </div>
                         </div>
                         <div id="redirectTextPage" style="margin-top: 50px">
-                            <label for="titleRedirect">Change The Title</label>
-                            <input id="titleRedirect" name="titleRedirect" type="text" class="form-control" onkeyup='saveValue(this);'>
+                            <label for="titleRedirectSetup">Change The Title</label>
+                            <input id="titleRedirectSetup" type="text" class="form-control" onkeyup='saveValue(this);'>
 
-                            <label for="textRedirect">Change The Text</label>
-                            <input id="textRedirect" name="textRedirect" type="text" class="form-control" onkeyup='saveValue(this);'>
+                            <label for="textRedirectSetup">Change The Text</label>
+                            <input id="textRedirectSetup" type="text" class="form-control" onkeyup='saveValue(this);'>
 
-                            <label for="linkRedirect">Add A Button Link</label>
-                            <input id="linkRedirect" name="linkRedirect" type="text" class="form-control" onkeyup='saveValue(this);'>
+                            <label for="linkRedirectSetup">Add A Button Link</label>
+                            <input id="linkRedirectSetup" type="text" class="form-control" onkeyup='saveValue(this);'>
 
-                            <label for="buttonTextRedirect">Change Button Text</label>
-                            <input id="buttonTextRedirect" name="buttonTextRedirect" type="text" class="form-control" onkeyup='saveValue(this);'>
+                            <label for="buttonRedirectSetup">Change Button Text</label>
+                            <input id="buttonRedirectSetup" type="text" class="form-control" onkeyup='saveValue(this);'>
                         </div>
 
                         <div id="redirectUrlPage" style="margin-top: 50px; display:none;">
-                            <label for="urlRedirect">Enter Custom Url </label>
-                            <input id="urlRedirect" name="urlRedirect" type="text" class="form-control" onkeyup='saveValue(this);'>
+                            <label for="urlRedirectSetup">Enter Custom Url </label>
+                            <input id="urlRedirectSetup" name="urlRedirect" placeholder="http://www.google.com" type="text" class="form-control" onkeyup='saveValue(this);'>
 
                         </div>
 
@@ -216,57 +194,23 @@
 
                     <h3>Finish</h3>
                     <fieldset class="form-input">
-                        <h4>Terms and Conditions</h4>
+                        <h4>Submit Login Page</h4>
 
                         <input id="acceptTerms-2" name="acceptTerms" type="checkbox" class="required"> <label
-                            for="acceptTerms-2">I agree with the Terms and Conditions.</label>
+                            for="acceptTerms-2">Are u want to submitting your design?</label>
                     </fieldset>
                 </form>
             </div>
         </div>
-        <div class="col-lg-7 banner-sec">
-            <div class="card" style="height: 940px; background-image: url({{asset("images/bg_white.jpg")}})"
+        <div class="col-lg-8 banner-sec">
+            <div class="card" style="height: 940px;border-radius: 0; background-image: url({{asset("images/bg_white.jpg")}})"
                  id="bgImage">
-                <div class="card-body primary-colour"
-                     style="width: 480px;display: block; margin: 2% auto 2% auto;border-radius: 5px;background-color: black;">
+                <div class="card-body mx-auto primary-colour"
+                     style="width: 480px; display: block; border-radius: 5px;background-color: black; margin-top: 2%; margin-bottom: 2%">
                     <img src={{asset("images/gx_logo_white.png")}} class="centered" id="logo" src="" style="max-width: 250px; max-height: 60px; display: block; margin-left: auto;
                 margin-right: auto; margin-top: 5%">
-                    <p class="text-colour-title" id="title"
-                       style="text-align:center; margin-top: 5%; font-weight: bold; font-size: 25px;color: #ABABAB">
-                        Custom
-                        Title</p>
-                    <p class="text-colour-desc" id="desc" style="text-align:center; margin-top: 2%;color: #ABABAB">
-                        Custom
-                        text for description</p>
-                    <div class="card border primary mb-3 mx-auto" style="width: 80%; min-height: 300px; border: 1px;
-                 text-align: center; margin-top: 5%;">
-                        <div class="container">
-                            <div class="formRendered" style="margin-bottom: 40px"></div>
-                        </div>
-                    </div>
-                    {{--                    <div class="row justify-content-center">--}}
-                    {{--                        <!-- Twitter Connect -->--}}
-                    {{--                        <div class="col-7 col-sm-4 px-1 pb-1"> <a href="#" class="btn btn-block btn-social btn-twitter"> <span class="fa fa-twitter"></span> Twitter </a> </div> <!-- Facebook Connect -->--}}
-                    {{--                        <div class="col-7 col-sm-4 px-1 pb-1"> <a href="#" class="btn btn-block btn-social btn-facebook"> <span class="fa fa-facebook"></span> Facebook </a> </div> <!-- Google Connect -->--}}
-                    {{--                        <div class="col-7 col-sm-4 px-1 pb-1"> <a href="#" class="btn btn-block btn-social btn-google"> <span class="fa fa-google-plus"></span> Google+ </a> </div>--}}
-                    {{--                    </div>--}}
-                    <button type="button" class="btn btn-floating secondary-colour" style="display: block;
-                    position: absolute ;margin: -40px 0 0 200px;height: 45px;width: 45px;
-                    border-radius: 50%;border: 3px solid white;background-color: black;color: white">
-                        <i class="fas fa-sign-in-alt"></i>
-                    </button>
-
-                    <div class="socMed">
-                        <a href="#" id="btnFacebook" class="fb btnSocmed">
-                            <i class="fa fa-facebook fa-fw"></i> Login with Facebook
-                        </a>
-                        <a href="#" id="btnTwitter" class="twitter btnSocmed">
-                            <i class="fa fa-twitter fa-fw"></i> Login with Twitter
-                        </a>
-                        <a href="#" id="btnGoogle" class="google btnSocmed"><i class="fa fa-google fa-fw">
-                            </i> Login with Google
-                        </a>
-                    </div>
+{{--                    @include('wifi_setup.form_rendered')--}}
+                    @include('wifi_setup.redirect_rendered')
 
 
                 </div>
@@ -309,13 +253,7 @@
              </div>--}}
         </div>
     </div>
-    <div class="row">
-        <div class="col-lg-12">
-            <p class="copyright text-center"> &copy; 1996-2020 <a href="http://globalxtreme.net">GlobalXtreme</a>
-                - Commited to better quality
-            </p>
-        </div>
-    </div>
+    @include('wifi_setup.footer')
 </div>
 {{--</div>--}}
 
@@ -353,9 +291,9 @@
                 return true;
             }
             // Forbid next action on "Warning" step if the user is to young
-            if (newIndex === 3 && Number($("#age").val()) < 18) {
-                return false;
-            }
+            // if (newIndex === 3 && Number($("#age").val()) < 18) {
+            //     return false;
+            // }
             // Needed in some cases if the user went back (clean up)
             if (currentIndex < newIndex) {
                 // To remove error styles
@@ -365,16 +303,16 @@
             form.validate().settings.ignore = ":disabled,:hidden";
             return form.valid();
         },
-        onStepChanged: function (event, currentIndex, priorIndex) {
-            // Used to skip the "Warning" step if the user is old enough.
-            if (currentIndex === 2 && Number($("#age").val()) >= 18) {
-                form.steps("next");
-            }
-            // Used to skip the "Warning" step if the user is old enough and wants to the previous step.
-            if (currentIndex === 2 && priorIndex === 3) {
-                form.steps("previous");
-            }
-        },
+        // onStepChanged: function (event, currentIndex, priorIndex) {
+        //     // Used to skip the "Warning" step if the user is old enough.
+        //     if (currentIndex === 2 && Number($("#age").val()) >= 18) {
+        //         form.steps("next");
+        //     }
+        //     // Used to skip the "Warning" step if the user is old enough and wants to the previous step.
+        //     if (currentIndex === 2 && priorIndex === 3) {
+        //         form.steps("previous");
+        //     }
+        // },
         onFinishing: function (event, currentIndex) {
             form.validate().settings.ignore = ":disabled";
             return form.valid();
@@ -411,13 +349,16 @@
             event.preventDefault();
             $('.secondary-colour').css('background-color', $(this).colorpicker('getValue', '#ffffff'));
             $('#secondaryColourSetup').css('background-color', $(this).colorpicker('getValue', '#ffffff'));
+            $('.circle').css('color', $(this).colorpicker('getValue', '#ffffff'));
         });
 
         // Example using an event, to change the color of the .jumbotron background:
         $('#textColourSetup').colorpicker().on('changeColor', function () {
+            $('#textColourSetup').css('background-color', $(this).colorpicker('getValue', '#ffffff'));
             $('.text-colour-title').css('color', $(this).colorpicker('getValue', '#ffffff'));
             $('.text-colour-desc').css('color', $(this).colorpicker('getValue', '#ffffff'));
-            $('#textColourSetup').css('background-color', $(this).colorpicker('getValue', '#ffffff'));
+            $('#redirectTitle').css('color', $(this).colorpicker('getValue', '#ffffff'));
+            $('#redirectDesc').css('color', $(this).colorpicker('getValue', '#ffffff'));
 
         });
 
@@ -435,6 +376,8 @@
             // set family on paragraphs
             $('.text-colour-title').css('font-family', font[0]);
             $('.text-colour-desc').css('font-family', font[0]);
+            $('#redirectTitle').css('font-family', font[0]);
+            $('#redirectDesc').css('font-family', font[0]);
         });
     });
 
@@ -474,6 +417,7 @@
         }
     };
 
+    //input text onchange
     $('#titleSetup').on('inputchange', function () {
         $('#title').text(this.value);
     });
@@ -482,7 +426,18 @@
         $('#desc').text(this.value);
     });
 
-    //toggle social media button
+    $('#titleRedirectSetup').on('inputchange', function () {
+        $('#redirectTitle').text(this.value);
+    });
+
+    $('#textRedirectSetup').on('inputchange', function () {
+        $('#redirectDesc').text(this.value);
+    });
+    $('#buttonRedirectSetup').on('inputchange', function () {
+        $('#redirect-button').text(this.value);
+    });
+
+    //toggle content button
     $(document).ready(function () {
 
         $("#facebookMethod").click(function () {
@@ -495,10 +450,15 @@
         $("#twitterMethod").click(function () {
             $("#btnTwitter").toggle();
         });
+        $("#formMethod").click(function () {
+            $("#formView").toggle();
+        });
+        $("#textMethod").click(function () {
+            $("#renderRedirectPage").toggle();
+        });
 
         //custom redirect
         $('#textMethod').click(function(){
-            console.log('cklik');
             $('#redirectTextPage').slideToggle('slow');
         });
         $("#urlMethod").click(function() {
@@ -511,6 +471,9 @@
     document.getElementById("titleSetup").value = getSavedValue("titleSetup");
     document.getElementById("descSetup").value = getSavedValue("descSetup");
     document.getElementById("logoSetup").value = getSavedValue("logoSetup");
+    document.getElementById("titleRedirectSetup").value = getSavedValue("titleRedirectSetup");
+    document.getElementById("textRedirectSetup").value = getSavedValue("textRedirectSetup");
+
 
     function saveValue(e){
         var id = e.id;  // get the sender's id to save it .
