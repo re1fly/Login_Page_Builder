@@ -24,7 +24,7 @@
 {{--        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"--}}
 {{--        crossorigin="anonymous"></script>--}}
 <script>
-    jQuery(function ($) {
+    $(function () {
         var fbEditor = document.getElementById('build-wrap');
         var templateSelect = document.getElementById("formTemplates");
         var options = {
@@ -70,7 +70,7 @@
                 {
                     label: 'Email',
                     type: "text",
-                    name: "email",
+                    name: "email-form",
                     required: true,
                     placeholder: "Enter Your Valid Email",
                     description: "This form is fillable for your email address",

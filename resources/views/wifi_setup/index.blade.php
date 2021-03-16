@@ -53,7 +53,8 @@
                     <fieldset class="form-input">
                         <h4>Setup Your Branding</h4>
                         <label for="companyName">Your Company Name</label>
-                        <input id="companyName" name="companyName" type="text" class="form-control" onkeyup='saveValue(this);'>
+                        <input id="companyName" name="companyName" type="text" class="form-control"
+                               onkeyup='saveValue(this);'>
 
                         <label for="logo">Add A Logo *</label>
                         <input class="form-control" id="logoSetup" name="logoSetup" type="file" accept="image/*"
@@ -95,7 +96,8 @@
                         <h4>Setup Login</h4>
 
                         <label for="titleSetup">Change The Title</label>
-                        <input id="titleSetup" name="titleSetup" type="text" class="form-control" onkeyup='saveValue(this);'>
+                        <input id="titleSetup" name="titleSetup" type="text" class="form-control"
+                               onkeyup='saveValue(this);'>
                         <label for="descSetup">Change The Text</label>
                         <input id="descSetup" name="desc" type="text" class="form-control" onkeyup='saveValue(this);'>
 
@@ -172,21 +174,26 @@
                         </div>
                         <div id="redirectTextPage" style="margin-top: 50px">
                             <label for="titleRedirectSetup">Change The Title</label>
-                            <input id="titleRedirectSetup" type="text" class="form-control" onkeyup='saveValue(this);'>
+                            <input id="titleRedirectSetup" name="titleRedirectSetup" type="text" class="form-control"
+                                   onkeyup='saveValue(this);'>
 
                             <label for="textRedirectSetup">Change The Text</label>
-                            <input id="textRedirectSetup" type="text" class="form-control" onkeyup='saveValue(this);'>
+                            <input id="textRedirectSetup" name="textRedirectSetup" type="text" class="form-control"
+                                   onkeyup='saveValue(this);'>
 
                             <label for="linkRedirectSetup">Add A Button Link</label>
-                            <input id="linkRedirectSetup" type="text" class="form-control" onkeyup='saveValue(this);'>
+                            <input id="linkRedirectSetup" name="linkRedirectSetup" type="text" class="form-control"
+                                   onkeyup='saveValue(this);'>
 
                             <label for="buttonRedirectSetup">Change Button Text</label>
-                            <input id="buttonRedirectSetup" type="text" class="form-control" onkeyup='saveValue(this);'>
+                            <input id="buttonRedirectSetup" name="buttonRedirectSetup" type="text" class="form-control"
+                                   placeholder="http://example.com" onkeyup='saveValue(this);'>
                         </div>
 
                         <div id="redirectUrlPage" style="margin-top: 50px; display:none;">
                             <label for="urlRedirectSetup">Enter Custom Url </label>
-                            <input id="urlRedirectSetup" name="urlRedirect" placeholder="http://www.google.com" type="text" class="form-control" onkeyup='saveValue(this);'>
+                            <input id="urlRedirectSetup" name="urlRedirectSetup" placeholder="http://example.com"
+                                   type="text" class="form-control" onkeyup='saveValue(this);'>
 
                         </div>
 
@@ -203,14 +210,15 @@
             </div>
         </div>
         <div class="col-lg-8 banner-sec">
-            <div class="card" style="height: 940px;border-radius: 0; background-image: url({{asset("images/bg_white.jpg")}})"
+            <div class="card"
+                 style="height: 940px;border-radius: 0; background-image: url({{asset("images/bg_white.jpg")}})"
                  id="bgImage">
                 <div class="card-body mx-auto primary-colour"
                      style="width: 480px; display: block; border-radius: 5px;background-color: black; margin-top: 2%; margin-bottom: 2%">
                     <img src={{asset("images/gx_logo_white.png")}} class="centered" id="logo" src="" style="max-width: 250px; max-height: 60px; display: block; margin-left: auto;
                 margin-right: auto; margin-top: 5%">
 {{--                    @include('wifi_setup.form_rendered')--}}
-                    @include('wifi_setup.redirect_rendered')
+                                        @include('wifi_setup.redirect_rendered')
 
 
                 </div>
@@ -458,30 +466,39 @@
         });
 
         //custom redirect
-        $('#textMethod').click(function(){
+        $('#textMethod').click(function () {
             $('#redirectTextPage').slideToggle('slow');
         });
-        $("#urlMethod").click(function() {
+        $("#urlMethod").click(function () {
             $("#redirectUrlPage").toggle('slow');
         });
+
+        //setup url redirect
+        $('#linkRedirectSetup').on('keypress', function () {
+            setTimeout($.proxy(function () {
+                $('#redirect-url').attr('href', this.value);
+            }, this), 10)
+        });
+
     });
 
     //save value in localstorage
     document.getElementById("companyName").value = getSavedValue("companyName");
     document.getElementById("titleSetup").value = getSavedValue("titleSetup");
     document.getElementById("descSetup").value = getSavedValue("descSetup");
-    document.getElementById("logoSetup").value = getSavedValue("logoSetup");
     document.getElementById("titleRedirectSetup").value = getSavedValue("titleRedirectSetup");
     document.getElementById("textRedirectSetup").value = getSavedValue("textRedirectSetup");
+    document.getElementById("linkRedirectSetup").value = getSavedValue("linkRedirectSetup");
+    document.getElementById("buttonRedirectSetup").value = getSavedValue("buttonRedirectSetup");
 
 
-    function saveValue(e){
+    function saveValue(e) {
         var id = e.id;  // get the sender's id to save it .
         var val = e.value; // get the value.
         localStorage.setItem(id, val);// Every time user writing something, the localStorage's value will override .
     }
 
-    function getSavedValue  (valueInput){
+    function getSavedValue(valueInput) {
         if (!localStorage.getItem(valueInput)) {
             return "";// You can change this to your defualt value.
         }
