@@ -6,6 +6,7 @@
                  border-radius: 8px; margin-top: 5%;">
         <div class="container">
             <div class="formRendered" style="margin:20px 0 60px 0"></div>
+            <input type="hidden" id="inputForm">
         </div>
     </div>
     <button type="button" class="btn btn-floating secondary-colour" style="display: block;

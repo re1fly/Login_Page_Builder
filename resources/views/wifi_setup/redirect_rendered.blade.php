@@ -8,7 +8,7 @@
     <div class="text-center">
         <a id="redirect-url" name="redirect-url" href="">
             <button id="redirect-button" name="redirect-button" style="margin-top: 10%;border: none; border-radius: 6px;
-            min-width: 180px; min-height: 50px; font-weight: bold">
+            min-width: 180px; min-height: 50px; font-weight: bold;display: none">
             </button>
         </a>
     </div>

@@ -7,16 +7,18 @@
 
 @import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
 
-body{
-	margin: 0px;
-	padding: 0px;
-	font-family: 'Poppins', sans-serif;
-	background-size: cover;
-	background-attachment: fixed;
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Poppins', sans-serif;
+    background-size: cover;
+    background-attachment: fixed;
 }
+
 html {
-	-ms-overflow-style: scrollbar;
+    -ms-overflow-style: scrollbar;
 }
+
 .alltrans,
 a,
 input[type="button"],
@@ -36,513 +38,604 @@ table td,
 .portfolio-box:after,
 .portfolio-box img,
 .portfolio-content {
-	-webkit-transition: all 0.4s ease;
-	transition: all 0.4s ease;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
 }
+
 a {
-	color: #e52225;
-	text-decoration: none;
+    color: #e52225;
+    text-decoration: none;
 }
+
 a:hover,
 a:focus {
-	color: #e52225;
-	outline: none;
-	text-decoration: none;
+    color: #e52225;
+    outline: none;
+    text-decoration: none;
 }
+
 button:hover,
 button:focus {
-	outline: none;
+    outline: none;
 }
 
 .link-dark {
-	color: #0f0f0f;
+    color: #0f0f0f;
 }
+
 .link-dark:hover, .link-dark:focus {
-	color: #e52225;
-	text-decoration: none;
+    color: #e52225;
+    text-decoration: none;
 }
-@media screen and (-ms-high-contrast:active), (-ms-high-contrast:none) {
-a:active {
-	background-color: transparent;
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    a:active {
+        background-color: transparent;
+    }
 }
-}
+
 strong {
-	font-weight: 700;
+    font-weight: 700;
 }
+
 small,
 .small {
-	font-size: 85%;
+    font-size: 85%;
 }
+
 sub,
 sup {
-	font-size: 80%
+    font-size: 80%
 }
+
 p {
-	margin: 0 0 20px;
+    margin: 0 0 20px;
 }
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-	line-height: 1.3;
-	margin: 0 0 15px;
-	font-weight: 700;
-	color: #0f0f0f;
-	text-transform: capitalize;
-	font-family: 'Poppins', sans-serif;
+    line-height: 1.3;
+    margin: 0 0 15px;
+    font-weight: 700;
+    color: #0f0f0f;
+    text-transform: capitalize;
+    font-family: 'Poppins', sans-serif;
 }
+
 h1,
 h2 {
-	font-size: 60px;
+    font-size: 60px;
 }
+
 h3 {
-	font-size: 30px;
-	font-weight: 600;
+    font-size: 30px;
+    font-weight: 600;
 }
+
 h4 {
-	font-size: 24px;
-	font-weight: 600;
+    font-size: 24px;
+    font-weight: 600;
 }
+
 h5 {
-	font-size: 22px;
-	margin-bottom: 10px;
-	font-weight: 600;
+    font-size: 22px;
+    margin-bottom: 10px;
+    font-weight: 600;
 }
+
 h6 {
-	font-size: 18px;
-	margin-bottom: 10px;
-	font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: 600;
 }
-html, body{
-	height: 100%;
-	width: 100%;
+
+html, body {
+    height: 100%;
+    width: 100%;
 }
 
 
 /*--- Login/Signup Modal ---*/
 
 
-.wizard-main{
-	position: relative;
+.wizard-main {
+    position: relative;
 }
-.wizard-main .title-wb{
-	text-align: center;
-	font-size: 28px;
-	text-transform: capitalize;
-	margin-bottom: 30px;
-	font-weight: 500;
+
+.wizard-main .title-wb {
+    text-align: center;
+    font-size: 28px;
+    text-transform: capitalize;
+    margin-bottom: 30px;
+    font-weight: 500;
 }
+
 #particles-js {
     position: absolute;
     width: 100%;
     height: 100%;
-	top: 0px;
-	left: 0px;
+    top: 0px;
+    left: 0px;
 }
 
-.carousel-inner{
-	}
-.carousel-caption{
-	text-align:left; left:5%;
-	}
-.banner-sec{
-	padding-right: 0px;
-}
-.banner-sec .carousel-inner .carousel-item img{
-	width: 100%;
-}
-.banner-sec .carousel-indicators li{
-	width: 6px;
-	height: 6px;
-	opacity: .5;
-	background-color: #bbb4b4;
-	margin: 0px 15px;
-}
-.banner-sec .carousel-indicators li.active{
-	width: 12px;
-	height: 13px;
-	background-color: #ff060a;
-	position: relative;
-	top: -4px;
-	opacity: 1;
-}
-.carousel-item:after{
-	content: "";
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	width: 100%;
-	height: 100%;
+.carousel-inner {
 }
 
-.login-sec{
-	padding: 30px 30px;
-	background:#FFFFFF;
-	}
-.login-sec-bg{
-	position:relative;
-	background:#FFFFFF;
+.carousel-caption {
+    text-align: left;
+    left: 5%;
 }
-.login-sec .copy-text{
-	position:absolute;
-	width:80%;
-	bottom:20px;
-	font-size:13px;
-	text-align:center;
-	}
-.login-sec .copy-text i{
-	color:#F9C900;
-	}
-.login-sec .copy-text a{
-	color:#E36262;
-	}
-.login-sec h2{
-	margin-bottom:30px;
-	font-weight: 600;
-	font-size: 24px;
-	color: #000000;
-	}
-.login-sec h2:after{
-	content:" ";
-	width:100px;
-	height:5px;
-	background:#F9C900;
-	display:block;
-	margin-top:5px;
-	margin-left:auto;
-	margin-right:auto;
-	}
-.btn-login{
-	background: #000000;
-	color:#F9C900;
-	font-weight:600;
-	}
-.banner-text{
-	width:70%;
-	position:absolute;
-	bottom:40px;
-	padding-left:20px;
-	}
-.banner-text h2{
-	color:#fff;
-	font-weight:600;
-	font-size: 32px;
-	}
-.banner-text h2:after{
-	content:" ";
-	width:100px;
-	height:5px;
-	background:#FFFFFF;
-	display:block;
-	margin-top:20px;
-	}
-.banner-text p{
-	color:#ffffff;
-	font-size: 18px;
-	line-height: 26px;
-	}
-.form-input h4{
-	font-size: 18px;
-	font-weight: bold;
+
+.banner-sec {
+    padding-right: 0px;
 }
-.form-input .form-control{
-	border-color: #fff;
-	border-radius: 0;
-	box-shadow: 0 0 8px rgba(91, 94, 222, 0.16);
-	font-size: 13px;
-	padding: 5px 20px;
+
+.banner-sec .carousel-inner .carousel-item img {
+    width: 100%;
+}
+
+.banner-sec .carousel-indicators li {
+    width: 6px;
+    height: 6px;
+    opacity: .5;
+    background-color: #bbb4b4;
+    margin: 0px 15px;
+}
+
+.banner-sec .carousel-indicators li.active {
+    width: 12px;
+    height: 13px;
+    background-color: #ff060a;
+    position: relative;
+    top: -4px;
+    opacity: 1;
+}
+
+.carousel-item:after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.login-sec {
+    padding: 30px 30px;
+    background: #FFFFFF;
+}
+
+.login-sec-bg {
+    position: relative;
+    background: #FFFFFF;
+}
+
+.login-sec .copy-text {
+    position: absolute;
+    width: 80%;
+    bottom: 20px;
+    font-size: 13px;
+    text-align: center;
+}
+
+.login-sec .copy-text i {
+    color: #F9C900;
+}
+
+.login-sec .copy-text a {
+    color: #E36262;
+}
+
+.login-sec h2 {
+    margin-bottom: 30px;
+    font-weight: 600;
+    font-size: 24px;
+    color: #000000;
+}
+
+.login-sec h2:after {
+    content: " ";
+    width: 100px;
+    height: 5px;
+    background: #F9C900;
+    display: block;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-login {
+    background: #000000;
+    color: #F9C900;
+    font-weight: 600;
+}
+
+.banner-text {
+    width: 70%;
+    position: absolute;
+    bottom: 40px;
+    padding-left: 20px;
+}
+
+.banner-text h2 {
+    color: #fff;
+    font-weight: 600;
+    font-size: 32px;
+}
+
+.banner-text h2:after {
+    content: " ";
+    width: 100px;
+    height: 5px;
+    background: #FFFFFF;
+    display: block;
+    margin-top: 20px;
+}
+
+.banner-text p {
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 26px;
+}
+
+.form-input h4 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.form-input .form-control {
+    border-color: #fff;
+    border-radius: 0;
+    box-shadow: 0 0 8px rgba(91, 94, 222, 0.16);
+    font-size: 13px;
+    padding: 5px 20px;
 }
 
 
+.wizard, .tabcontrol {
+    display: block;
+    width: 100%;
+    overflow: hidden
+}
 
-.wizard,.tabcontrol{
-    display:block;
-    width:100%;
-    overflow:hidden
+.wizard a, .tabcontrol a {
+    outline: 0
 }
-.wizard a,.tabcontrol a{
-    outline:0
+
+.wizard ul, .tabcontrol ul {
+    list-style: none !important;
+    padding: 0;
+    margin: 0
 }
-.wizard ul,.tabcontrol ul{
-    list-style:none!important;
-    padding:0;
-    margin:0
+
+.wizard ul > li, .tabcontrol ul > li {
+    display: block;
+    padding: 0
 }
-.wizard ul>li,.tabcontrol ul>li{
-    display:block;
-    padding:0
+
+.wizard > .steps .current-info, .tabcontrol > .steps .current-info {
+    position: absolute;
+    left: -999em
 }
-.wizard>.steps .current-info,.tabcontrol>.steps .current-info{
-    position:absolute;
-    left:-999em
+
+.wizard > .content > .title, .tabcontrol > .content > .title {
+    position: absolute;
+    left: -999em
 }
-.wizard>.content>.title,.tabcontrol>.content>.title{
-    position:absolute;
-    left:-999em
+
+.wizard > .steps {
+    position: relative;
+    display: block;
+    width: 100%
 }
-.wizard>.steps{
-    position:relative;
-    display:block;
-    width:100%
+
+.wizard.vertical > .steps {
+    display: inline;
+    float: left;
+    width: 30%
 }
-.wizard.vertical>.steps{
-    display:inline;
-    float:left;
-    width:30%
-}
-.wizard>.steps .number{
+
+.wizard > .steps .number {
     font-size: 14px;
 }
-.wizard>.steps>ul>li{
-    width:25%
+
+.wizard > .steps > ul > li {
+    width: 25%
 }
-.wizard>.steps>ul>li,.wizard>.actions>ul>li{
-    float:left
+
+.wizard > .steps > ul > li, .wizard > .actions > ul > li {
+    float: left
 }
-.wizard.vertical>.steps>ul>li{
-    float:none;
-    width:100%
+
+.wizard.vertical > .steps > ul > li {
+    float: none;
+    width: 100%
 }
-.wizard>.steps a,.wizard>.steps a:hover,.wizard>.steps a:active{
-    display:block;
-    width:auto;
-    margin:0 .5em .5em;
-	font-size: 14px;
+
+.wizard > .steps a, .wizard > .steps a:hover, .wizard > .steps a:active {
+    display: block;
+    width: auto;
+    margin: 0 .5em .5em;
+    font-size: 14px;
     padding: 5px 15px;
-    text-decoration:none;
-    -webkit-border-radius:5px;
-    -moz-border-radius:5px;
+    text-decoration: none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
 }
-.wizard>.steps .disabled a,.wizard>.steps .disabled a:hover,.wizard>.steps .disabled a:active{
-    background:#eee;
-    color:#aaa;
-    cursor:default
+
+.wizard > .steps .disabled a, .wizard > .steps .disabled a:hover, .wizard > .steps .disabled a:active {
+    background: #eee;
+    color: #aaa;
+    cursor: default
 }
-.wizard>.steps .current a,.wizard>.steps .current a:hover,.wizard>.steps .current a:active{
-    background:#F9C900;
-    color:#000000;
-    cursor:default
+
+.wizard > .steps .current a, .wizard > .steps .current a:hover, .wizard > .steps .current a:active {
+    background: #F9C900;
+    color: #000000;
+    cursor: default
 }
-.wizard>.steps .done a,.wizard>.steps .done a:hover,.wizard>.steps .done a:active{
-    background:#FFF0B3;
-    color:#000000
+
+.wizard > .steps .done a, .wizard > .steps .done a:hover, .wizard > .steps .done a:active {
+    background: #FFF0B3;
+    color: #000000
 }
-.wizard>.steps .error a,.wizard>.steps .error a:hover,.wizard>.steps .error a:active{
-    background:#ff3111;
-    color:#000000
+
+.wizard > .steps .error a, .wizard > .steps .error a:hover, .wizard > .steps .error a:active {
+    background: #ff3111;
+    color: #000000
 }
-.wizard>.content{
-    background:#ffffff;
-    display:block;
-    margin:.5em;
+
+.wizard > .content {
+    background: #ffffff;
+    display: block;
+    margin: .5em;
     min-height: 640px;
-    overflow:hidden;
-    position:relative;
-    width:auto;
-    -webkit-border-radius:5px;
-    -moz-border-radius:5px;
+    overflow: hidden;
+    position: relative;
+    width: auto;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
 }
-.wizard.vertical>.content{
-    display:inline;
-    float:left;
-    margin:0 2.5% .5em 2.5%;
-    width:65%
+
+.wizard.vertical > .content {
+    display: inline;
+    float: left;
+    margin: 0 2.5% .5em 2.5%;
+    width: 65%
 }
-.wizard>.content>.body{
-    float:left;
-    position:absolute;
-    width:95%;
-    height:95%;
-    padding:2.5%
+
+.wizard > .content > .body {
+    float: left;
+    position: absolute;
+    width: 95%;
+    height: 95%;
+    padding: 2.5%
 }
-.wizard>.content>.body ul{
-    list-style:disc!important
+
+.wizard > .content > .body ul {
+    list-style: disc !important
 }
-.wizard>.content>.body ul>li{
-    display:list-item
+
+.wizard > .content > .body ul > li {
+    display: list-item
 }
-.wizard>.content>.body>iframe{
-    border:0 none;
-    width:100%;
-    height:100%
+
+.wizard > .content > .body > iframe {
+    border: 0 none;
+    width: 100%;
+    height: 100%
 }
-.wizard>.content>.body input{
-    display:block;
-	margin-bottom: 10px;
-}
-.wizard>.content>.body input[type="checkbox"]{
-    display:inline-block
-}
-.wizard>.content>.body input.error{
-    background:#fbe3e4;
-    border:1px solid #fbe3e4;
-    color:#8a1f11
-}
-.wizard>.content>.body label{
-    display:inline-block;
+
+.wizard > .content > .body input {
+    display: block;
     margin-bottom: 10px;
-	font-size: 13px;
-	font-weight: bold;
 }
-.wizard>.content>.body label.error{
-    color:#8a1f11;
-    display:inline-block;
-    margin-left:1.5em
+
+.wizard > .content > .body input[type="checkbox"] {
+    display: inline-block
 }
-.wizard>.actions{
-    position:relative;
-    display:block;
-    text-align:right;
-    width:100%
+
+.wizard > .content > .body input.error {
+    background: #fbe3e4;
+    border: 1px solid #fbe3e4;
+    color: #8a1f11
 }
-.wizard.vertical>.actions{
-    display:inline;
-    float:right;
-    margin:0 2.5%;
-    width:95%
+
+.wizard > .content > .body label {
+    display: inline-block;
+    margin-bottom: 10px;
+    font-size: 13px;
+    font-weight: bold;
 }
-.wizard>.actions>ul{
-    display:inline-block;
-    text-align:right
+
+.wizard > .content > .body label.error {
+    color: #8a1f11;
+    display: inline-block;
+    margin-left: 1.5em
 }
-.wizard>.actions>ul>li{
-    margin:0 .5em
+
+.wizard > .actions {
+    position: relative;
+    display: block;
+    text-align: right;
+    width: 100%
 }
-.wizard.vertical>.actions>ul>li{
-    margin:0 0 0 1em
+
+.wizard.vertical > .actions {
+    display: inline;
+    float: right;
+    margin: 0 2.5%;
+    width: 95%
 }
-.wizard>.actions a,.wizard>.actions a:hover,.wizard>.actions a:active{
-    background:#F9C900;
-    color:#000000;
-    display:block;
-    padding:.5em 1em;
-    text-decoration:none;
-    -webkit-border-radius:5px;
-    -moz-border-radius:5px;
+
+.wizard > .actions > ul {
+    display: inline-block;
+    text-align: right
 }
-.wizard>.actions .disabled a,.wizard>.actions .disabled a:hover,.wizard>.actions .disabled a:active{
-    background:#eee;
-    color:#aaa
+
+.wizard > .actions > ul > li {
+    margin: 0 .5em
 }
-.wizard>.loading{
+
+.wizard.vertical > .actions > ul > li {
+    margin: 0 0 0 1em
 }
-.wizard>.loading .spinner{
+
+.wizard > .actions a, .wizard > .actions a:hover, .wizard > .actions a:active {
+    background: #F9C900;
+    color: #000000;
+    display: block;
+    padding: .5em 1em;
+    text-decoration: none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
 }
-.tabcontrol>.steps{
-    position:relative;
-    display:block;
-    width:100%
+
+.wizard > .actions .disabled a, .wizard > .actions .disabled a:hover, .wizard > .actions .disabled a:active {
+    background: #eee;
+    color: #aaa
 }
-.tabcontrol>.steps>ul{
-    position:relative;
-    margin:6px 0 0 0;
-    top:1px;
-    z-index:1
+
+.wizard > .loading {
 }
-.tabcontrol>.steps>ul>li{
-    float:left;
-    margin:5px 2px 0 0;
-    padding:1px;
-    -webkit-border-top-left-radius:5px;
-    -webkit-border-top-right-radius:5px;
-    -moz-border-radius-topleft:5px;
-    -moz-border-radius-topright:5px;
-    border-top-left-radius:5px;
-    border-top-right-radius:5px
+
+.wizard > .loading .spinner {
 }
-.tabcontrol>.steps>ul>li:hover{
-    background:#edecec;
-    border:1px solid #bbb;
-    padding:0
+
+.tabcontrol > .steps {
+    position: relative;
+    display: block;
+    width: 100%
 }
-.tabcontrol>.steps>ul>li.current{
-    background:#000000;
-    border:1px solid #bbb;
-    border-bottom:0 none;
-    padding:0 0 1px 0;
-    margin-top:0
+
+.tabcontrol > .steps > ul {
+    position: relative;
+    margin: 6px 0 0 0;
+    top: 1px;
+    z-index: 1
 }
-.tabcontrol>.steps>ul>li>a{
-    color:#5f5f5f;
-    display:inline-block;
-    border:0 none;
-    margin:0;
-    padding:10px 30px;
-    text-decoration:none
+
+.tabcontrol > .steps > ul > li {
+    float: left;
+    margin: 5px 2px 0 0;
+    padding: 1px;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px
 }
-.tabcontrol>.steps>ul>li>a:hover{
-    text-decoration:none
+
+.tabcontrol > .steps > ul > li:hover {
+    background: #edecec;
+    border: 1px solid #bbb;
+    padding: 0
 }
-.tabcontrol>.steps>ul>li.current>a{
-    padding:15px 30px 10px 30px
+
+.tabcontrol > .steps > ul > li.current {
+    background: #000000;
+    border: 1px solid #bbb;
+    border-bottom: 0 none;
+    padding: 0 0 1px 0;
+    margin-top: 0
 }
-.tabcontrol>.content{
-    position:relative;
-    display:inline-block;
-    width:100%;
-    height:35em;
-    overflow:hidden;
-    border-top:1px solid #bbb;
-    padding-top:20px
+
+.tabcontrol > .steps > ul > li > a {
+    color: #5f5f5f;
+    display: inline-block;
+    border: 0 none;
+    margin: 0;
+    padding: 10px 30px;
+    text-decoration: none
 }
-.tabcontrol>.content>.body{
-    float:left;
-    position:absolute;
-    width:95%;
-    height:95%;
-    padding:2.5%
+
+.tabcontrol > .steps > ul > li > a:hover {
+    text-decoration: none
 }
-.tabcontrol>.content>.body ul{
-    list-style:disc!important
+
+.tabcontrol > .steps > ul > li.current > a {
+    padding: 15px 30px 10px 30px
 }
-.tabcontrol>.content>.body ul>li{
-    display:list-item
+
+.tabcontrol > .content {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 35em;
+    overflow: hidden;
+    border-top: 1px solid #bbb;
+    padding-top: 20px
 }
-@media(max-width:600px){
-    .wizard>.steps>ul>li{
-        width:50%
+
+.tabcontrol > .content > .body {
+    float: left;
+    position: absolute;
+    width: 95%;
+    height: 95%;
+    padding: 2.5%
+}
+
+.tabcontrol > .content > .body ul {
+    list-style: disc !important
+}
+
+.tabcontrol > .content > .body ul > li {
+    display: list-item
+}
+
+@media (max-width: 600px) {
+    .wizard > .steps > ul > li {
+        width: 50%
     }
-    .wizard>.steps a,.wizard>.steps a:hover,.wizard>.steps a:active{
-        margin-top:.5em
+
+    .wizard > .steps a, .wizard > .steps a:hover, .wizard > .steps a:active {
+        margin-top: .5em
     }
-    .wizard.vertical>.steps,.wizard.vertical>.actions{
-        display:block;
-        float:none;
-        width:100%
+
+    .wizard.vertical > .steps, .wizard.vertical > .actions {
+        display: block;
+        float: none;
+        width: 100%
     }
-    .wizard.vertical>.content{
-        display:block;
-        float:none;
-        margin:0 .5em .5em;
-        width:auto
+
+    .wizard.vertical > .content {
+        display: block;
+        float: none;
+        margin: 0 .5em .5em;
+        width: auto
     }
 }
-@media(max-width:480px){
-    .wizard>.steps>ul>li{
-        width:100%
+
+@media (max-width: 480px) {
+    .wizard > .steps > ul > li {
+        width: 100%
     }
 }
 
 
-
-
-.copyright.text-center{
-	margin-top: 30px;
-	margin-bottom: 0px;
+.copyright.text-center {
+    margin-top: 30px;
+    margin-bottom: 0px;
 }
-.copyright.text-center a{
-	color: #eda503;
+
+.copyright.text-center a {
+    color: #eda503;
 }
-.copyright.text-center a:hover{
-	color: #ffffff;
+
+.copyright.text-center a:hover {
+    color: #ffffff;
 }
 
 /*Button Social media*/
 .socMed {
     margin-top: 60px;
 }
+
 .btnSocmed {
     width: 45%;
     padding: 12px;
@@ -555,9 +648,11 @@ html, body{
     line-height: 20px;
     text-decoration: none; /* remove underline from anchors */
 }
+
 .btn:hover {
     opacity: 1;
 }
+
 .fb {
     background-color: #3B5998;
     color: white;
@@ -572,6 +667,39 @@ html, body{
     background-color: #dd4b39;
     color: white;
 }
+
+
+/*rendering page*/
+.setup-form {
+    background-color: black !important;
+    color: #F9C900 !important;
+}
+
+/*rendered page*/
+.primary-colour {
+    width: 480px;
+    display: block;
+    border-radius: 5px;
+    background-color: black;
+    margin-top: 2%;
+    margin-bottom: 2%
+}
+
+.logo-rendered {
+    max-width: 250px;
+    max-height: 60px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%
+}
+
+/*form builder*/
+.setDataWrap {
+    text-align: center;
+    margin: 20px;
+}
+
 
 
 

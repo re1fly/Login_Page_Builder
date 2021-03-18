@@ -20,7 +20,7 @@ Route::get('/design', function () {
 
 //wifi-setup
 Route::get('/wifi-setup',[WifiSetup::class, 'index']);
-Route::get('/form',[WifiSetup::class, 'form']);
+Route::post('/rendered-setup',[WifiSetup::class, 'setup']);
 
 
 Route::get('/', function () {
@@ -28,6 +28,8 @@ Route::get('/', function () {
 });
 
 Route::get('testing', 'Controller@testing');
+Route::get('setup', 'Controller@getHotspot');
+Route::post('setup', 'Controller@saveHotspot');
 
 Route::prefix('page')
     ->group(function () {
@@ -63,3 +65,7 @@ Route::prefix('auth')
         Route::get('github/callback', 'SocialiteLoginController@handleGithubCallback')->name('github.callback');
 
     });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

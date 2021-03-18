@@ -1,11 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1e9ffe52-ca43-4dc9-8386-7a563a35150f" name="Default" comment="redirect features">
+    <list default="true" id="1e9ffe52-ca43-4dc9-8386-7a563a35150f" name="Default" comment="url redirect">
+      <change beforePath="$PROJECT_DIR$/.idea/html-editor_laravel-react.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/html-editor_laravel-react.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WifiSetup.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WifiSetup.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/wifi_setup/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/wifi_setup/form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/wifi_setup/form_rendered.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/wifi_setup/form_rendered.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/wifi_setup/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/wifi_setup/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/wifi_setup/redirect_rendered.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/wifi_setup/redirect_rendered.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/267yXWX3qupJx0QK.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/2QebBi39ZKPBKIYI.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/3Ig0LzQq6207hn0S.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/AVNv2ODln9GhwdL6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/CTfbHrCUzdN6Zgdy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/CagxUlmcpAo9F1FY.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/E2ZwEKHsBufCk241.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/E5dw2jFDxzCweHiP.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/F4c4ErXBbSMP9lgl.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/FZgsMq8cA2OhJnvJ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/FofnvdbW3VKIHG4Q.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/FvyTuNNMGoQB6rla.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/IF67boOoslh7Q9Vm.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/MQhUAVoNGqUV7IHL.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/Oa0OkCKaJmgscQS4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/OhLjx171EKjVdutt.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/PpuNp0ksNbmJKpKC.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/THUgGyGFLOaU7wMQ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/TtvyO9lFdlEWatE7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/ULQYZasnC7TtLosb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/Uh8jknzoUC3lBU2t.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/VNk7E6CWRY5ty9Ai.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/VeMcjdhQbuusHN9x.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/VpX4gT8d2kvJamiS.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/WdSX0AtEyzAcOLJT.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/b9naQdKw3wpoEhjz.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/bz8MtiAV72QiwUrq.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/dFQZwcKlMCIyBDoH.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/fEyBAUBPrg07KbQe.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/form_json.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/gDPGv5Oyq0oRL9o4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/hsss2Rx9TzHbmGWF.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/jiHlmoYKXXspm9YG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/lQK5847Ss8VuzOwm.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/mZ2iIL9uFNELVpAx.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/mkBOgTT3xIViw0E1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/nhgvtdRAk28m30as.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/rAfuJaaBlh1lSgTk.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/s2bITMNqpdqZPBmz.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/tZCaLZlC6jv5tD2E.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/template_html.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/template_json.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/testing.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/uaPKIVfdFKvfImun.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/xCjeMeBmP4ipAH3H.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/tmp/yN3MswPOSCvAVRtS.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -255,18 +307,18 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/routes" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\page_wifi\routes" />
+      <recent name="C:\xampp\htdocs\page_wifi\app\Http\Controllers" />
       <recent name="C:\xampp\htdocs\page_wifi\public\images" />
       <recent name="C:\xampp\htdocs\page_wifi\public\fontpicker" />
       <recent name="C:\xampp\htdocs\page_wifi\public\font_picker" />
-      <recent name="C:\xampp\htdocs\page_wifi\public" />
-      <recent name="C:\xampp\htdocs\page_wifi\resources\views\wifi_settings" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\page_wifi\resources\js\components" />
@@ -339,7 +391,9 @@
       <workItem from="1615594011080" duration="24526000" />
       <workItem from="1615767899036" duration="20631000" />
       <workItem from="1615795090072" duration="4594000" />
-      <workItem from="1615853640050" duration="9979000" />
+      <workItem from="1615853640050" duration="27095000" />
+      <workItem from="1615949013911" duration="146000" />
+      <workItem from="1615949358158" duration="13959000" />
     </task>
     <task id="LOCAL-00001" summary="post api with axios">
       <created>1614043274906</created>
@@ -418,7 +472,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615799093215</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="url redirect">
+      <created>1615864075285</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1615864075285</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -463,7 +524,8 @@
     <MESSAGE value="fixing feature form and color picker" />
     <MESSAGE value="add features" />
     <MESSAGE value="redirect features" />
-    <option name="LAST_COMMIT_MESSAGE" value="redirect features" />
+    <MESSAGE value="url redirect" />
+    <option name="LAST_COMMIT_MESSAGE" value="url redirect" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

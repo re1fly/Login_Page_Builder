@@ -2,7 +2,7 @@
 
 <div id="build-wrap"></div>
 
-<div class="setDataWrap" style="text-align: center;margin: 20px;">
+<div class="setDataWrap">
     <button id="getJSON" type="button">Get JSON Data</button>
     <button id="getJS" type="button">Get JS Data</button>
     <button id="appendField" class="addFieldBtn" data-label="Appended Field" type="button">Add Field</button>
@@ -12,7 +12,7 @@
     <button id="clear-all-fields" type="button">Clear Fields</button>
     <button id="close-editor" type="button">Close Editor</button>
     <button id="saveData" type="button">External Save Button</button>
-    <button id="saveHtml" type="button">Export Form HTML</button>
+    <button id="saveHtml" name="saveHtml" type="button">Export Form HTML</button>
 
 </div>
 
@@ -60,6 +60,7 @@
                 console.log("formbuilder saved");
                 toggleEdit(false);
                 $(".formRendered").formRender({formData});
+                $("#inputForm").val(formData);
             },
             //add subtypes
             subtypes: {
@@ -379,6 +380,9 @@
         //init
         var formBuilder = $(fbEditor).formBuilder(options);
 
+        document.getElementById('saveHtml').addEventListener('click', function () {
+            console.log('clicked');
+        });
 
         //getJson
         document.getElementById('getJSON').addEventListener('click', function () {
@@ -419,6 +423,10 @@
         //external save
         document.getElementById("saveData").addEventListener('click', function () {
             console.log(formBuilder.actions.save())
+        });
+
+        $("saveHtml").click(function () {
+            console.log('CLICKED');
         });
 
     });
